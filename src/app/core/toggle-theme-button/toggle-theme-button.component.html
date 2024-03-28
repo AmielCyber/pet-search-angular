@@ -1,3 +1,6 @@
-<button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-  <mat-icon fontIcon="dark_mode">share</mat-icon>
+<button mat-icon-button aria-label="Toggle Color Theme" (click)="onToggleTheme()">
+  <mat-icon *ngIf="isDarkMode; else toggleLightTheme" fontIcon="light_mode">Set Light Theme</mat-icon>
+  <ng-template #toggleLightTheme>
+    <mat-icon fontIcon="dark_mode">Set Dark Theme</mat-icon>
+  </ng-template>
 </button>
