@@ -1,4 +1,11 @@
-<button mat-fab extended aria-label="Set zip code">
-  <mat-icon fontIcon="location_on">{{zipCode}}</mat-icon>
-  {{zipCode}}
+<button
+  mat-fab
+  extended
+  aria-label="Set zip code"
+  *ngIf="location$ | async as location"
+  [disabled]="isLoading$ | async"
+  (click)="openZipcodeDialog()"
+>
+  <mat-icon fontIcon="location_on"> {{ location.zipcode }}</mat-icon>
+  {{ location.zipcode }}
 </button>
