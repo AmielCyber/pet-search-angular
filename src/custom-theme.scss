@@ -28,14 +28,12 @@ $pet-search-light-theme: mat.define-light-theme((
   color: (
     primary: $pet-search-primary-light-theme,
     accent: $pet-search-accent-light-theme,
-    warn: $pet-search-angular-warn,
   ),
 ));
 $pet-search-dark-theme: mat.define-dark-theme((
   color: (
     primary: $pet-search-primary-dark-theme,
     accent: $pet-search-accent-dark-theme,
-    warn: $pet-search-angular-warn,
   ),
 ));
 
@@ -54,11 +52,6 @@ $pet-search-typography: mat.define-typography-config();
 .theme-light {
   @include mat.all-component-colors($pet-search-light-theme);
 }
-
-.error-snackbar{
-  --mdc-snackbar-container-color: #f83022
-}
-
 
 
 html, body { height: 100%; }
