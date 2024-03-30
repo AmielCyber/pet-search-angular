@@ -3,19 +3,15 @@ $light-primary-text: white;
 
 $primary-light-theme-palette: (
   50: #e0f2f0,
-  100: #b3e0d9,
-  200: #80cbc0,
-  300: #4db6a6,
-  400: #26a693,
+  100: #b2dfd7,
+  200: #80cbbe,
+  300: #4db6a4,
+  400: #27a692,
   500: #009680,
-  600: #008e78,
-  700: #00836d,
-  800: #007963,
-  900: #006850,
-  A100: #97ffe3,
-  A200: #64ffd5,
-  A400: #31ffc7,
-  A700: #18ffc0,
+  600: #008973,
+  700: #007964,
+  800: #006955,
+  900: #004d3a,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
@@ -27,10 +23,6 @@ $primary-light-theme-palette: (
     700: $light-primary-text,
     800: $light-primary-text,
     900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $dark-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
   )
 );
 $primary-dark-theme-palette: (
@@ -44,10 +36,6 @@ $primary-dark-theme-palette: (
   700 : #a2d7cd,
   800 : #99d2c7,
   900 : #8acabe,
-  A100 : $light-primary-text,
-  A200 : $light-primary-text,
-  A400 : #f6fffd,
-  A700 : #dcfff8,
 
   contrast: (
     50: $dark-primary-text,
@@ -60,28 +48,19 @@ $primary-dark-theme-palette: (
     700: $dark-primary-text,
     800: $dark-primary-text,
     900: $dark-primary-text,
-    A100: $dark-primary-text,
-    A200: $dark-primary-text,
-    A400: $dark-primary-text,
-    A700: $dark-primary-text,
   )
 );
 $secondary-light-theme-palette: (
-  50: #f8e4e6,
-  100: #edbcc0,
-  200: #e19096,
-  300: #d5646c,
-  400: #cc424d,
-  500: #c3212d,
-  600: #bd1d28,
-  700: #b51822,
-  800: #ae141c,
-  900: #a10b11,
-  A100: #ffcfd0,
-  A200: #ff9c9e,
-  A400: #ff696c,
-  A700: #ff4f53,
-
+  50: #fae8eb,
+  100: #f3c6cc,
+  200: #db8e92,
+  300: #ca6469,
+  400: #d04147,
+  500: #d12a2e,
+  600: #c3212d,
+  700: #b21727,
+  800: #a50f21,
+  900: #960017,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
@@ -93,10 +72,6 @@ $secondary-light-theme-palette: (
     700: $light-primary-text,
     800: $light-primary-text,
     900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $dark-primary-text,
-    A400: $dark-primary-text,
-    A700: $dark-primary-text,
   )
 );
 
@@ -111,10 +86,6 @@ $secondary-dark-theme-palette: (
   700 : #efb9c0,
   800 : #edb1b9,
   900 : #eaa4ad,
-  A100 : $light-primary-text,
-  A200 : $light-primary-text,
-  A400 : $light-primary-text,
-  A700 : $light-primary-text,
   contrast: (
     50 : $dark-primary-text,
     100 : $dark-primary-text,
@@ -126,10 +97,6 @@ $secondary-dark-theme-palette: (
     700 : $dark-primary-text,
     800 : $dark-primary-text,
     900 : $dark-primary-text,
-    A100 : $dark-primary-text,
-    A200 : $dark-primary-text,
-    A400 : $dark-primary-text,
-    A700 : $dark-primary-text,
   )
 );
 

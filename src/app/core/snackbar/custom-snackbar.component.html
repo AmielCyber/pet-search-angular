@@ -1,0 +1,22 @@
+<div class="container">
+  <div matSnackBarLabel class="snack-label">
+    <div [ngSwitch]="snackBarDataModel.type">
+      <mat-icon *ngSwitchCase="'success'"
+                aria-hidden="true"
+                aria-label="Success"
+                fontIcon="check_circle"
+      ></mat-icon>
+      <mat-icon *ngSwitchCase="'error'"
+                aria-hidden="true"
+                aria-label="Error"
+                fontIcon="error_outline"
+      ></mat-icon>
+      <mat-icon *ngSwitchDefault
+                aria-hidden="true"
+                aria-label="Info"
+                fontIcon="info_outline"
+      ></mat-icon>
+    </div>
+    {{ snackBarDataModel.message }}
+  </div>
+</div>

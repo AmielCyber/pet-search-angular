@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
-import {MatFabButton, MatIconButton} from "@angular/material/button";
+import {MatButton, MatFabButton, MatIconButton} from "@angular/material/button";
 import {MatIconAnchor} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
@@ -11,6 +11,7 @@ import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
 import { ToggleThemeButtonComponent } from './toggle-theme-button/toggle-theme-button.component';
 import {LocationModule} from "./location/location.module";
+import { CustomSnackbarComponent } from './snackbar/custom-snackbar.component';
 
 
 
@@ -18,7 +19,8 @@ import {LocationModule} from "./location/location.module";
   declarations: [
     TopNavBarComponent,
     HomeButtonComponent,
-    ToggleThemeButtonComponent
+    ToggleThemeButtonComponent,
+    CustomSnackbarComponent
   ],
   exports: [
     TopNavBarComponent
@@ -32,7 +34,8 @@ import {LocationModule} from "./location/location.module";
     CommonModule,
     LocationModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButton,
   ]
 })
 export class CoreModule { }
