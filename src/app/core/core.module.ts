@@ -12,6 +12,7 @@ import { HomeButtonComponent } from './home-button/home-button.component';
 import { ToggleThemeButtonComponent } from './toggle-theme-button/toggle-theme-button.component';
 import {LocationModule} from "./location/location.module";
 import { CustomSnackbarComponent } from './snackbar/custom-snackbar.component';
+import {RouterLink} from "@angular/router";
 
 
 
@@ -36,6 +37,7 @@ import { CustomSnackbarComponent } from './snackbar/custom-snackbar.component';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatButton,
+    RouterLink,
   ]
 })
 export class CoreModule { }
