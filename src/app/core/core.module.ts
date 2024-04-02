@@ -8,7 +8,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
-import { HomeButtonComponent } from './home-button/home-button.component';
+import { HomeLinkComponent } from './home-link/home-link.component';
 import { ToggleThemeButtonComponent } from './toggle-theme-button/toggle-theme-button.component';
 import {LocationModule} from "./location/location.module";
 import { CustomSnackbarComponent } from './snackbar/custom-snackbar.component';
@@ -19,7 +19,7 @@ import {RouterLink} from "@angular/router";
 @NgModule({
   declarations: [
     TopNavBarComponent,
-    HomeButtonComponent,
+    HomeLinkComponent,
     ToggleThemeButtonComponent,
     CustomSnackbarComponent
   ],
