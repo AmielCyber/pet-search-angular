@@ -38,7 +38,7 @@ $pet-search-dark-theme: mat.define-dark-theme((
 ));
 
 $pet-search-typography: mat.define-typography-config();
-@include mat.all-component-typographies($pet-search-typography);
+@include mat.typography-hierarchy($pet-search-typography);
 @include mat.all-component-densities(0);
 
 
