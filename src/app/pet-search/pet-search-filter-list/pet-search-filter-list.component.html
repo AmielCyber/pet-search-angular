@@ -1,0 +1,12 @@
+<div class="filters-container">
+  <app-pet-search-filter-select
+    [selectInputData]="selectSortInputData"
+    [defaultSelectOption]="selectSortInputData.defaultSelectedOption"
+    (selectFilterChange)="onSortChange($event)"
+  />
+  <app-pet-search-filter-select
+    [selectInputData]="selectDistanceInputData"
+    [defaultSelectOption]="selectDistanceInputData.defaultSelectedOption"
+    (selectFilterChange)="onDistanceChange($event)"
+  />
+</div>

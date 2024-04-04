@@ -1,0 +1,15 @@
+<ng-container
+  *ngIf="petTypePlural else invalidPetType"
+>
+  <app-pet-search-header
+    [locationName]="'San Diego, California'"
+    [petTypePlural]="petTypePlural"
+    [totalCount]="3"
+  ></app-pet-search-header>
+  <app-pet-search-filter-list></app-pet-search-filter-list>
+</ng-container>
+<ng-template #invalidPetType>
+  <!-- TODO: Set up error page with error message -->
+  {{ petTypeErrorMessage }}
+</ng-template>
+
