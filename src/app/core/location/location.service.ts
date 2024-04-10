@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, finalize, catchError, EMPTY} from "rxjs";
 
-import {Location, defaultLocation} from "./location.model";
+import {Location, defaultLocation} from "../../models/location.model";
 import {LocationHttpService} from "./location-http.service";
 import {SnackbarService} from "../snackbar/snackbar.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class LocationService {
   private readonly isLoadingSubject = new BehaviorSubject<boolean>(false);
   private previousGeoLocation?: Location;
 
-  constructor(private locationHttpService: LocationHttpService, private snackbarService: SnackbarService) {
+  constructor(private locationHttpService: LocationHttpService, private snackbarService: SnackbarService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.location$ = this.locationSubject.asObservable();
     this.isLoading$ = this.isLoadingSubject.asObservable();
   }
@@ -34,6 +35,7 @@ export class LocationService {
       .subscribe(location => {
         this.locationSubject.next(location)
         this.snackbarService.success("Updated entered zipcode!")
+        this.setLocationInQueryParams(location);
       });
   }
 
@@ -67,6 +69,18 @@ export class LocationService {
         this.snackbarService.success("Updated local zipcode!");
         this.locationSubject.next(location)
         this.previousGeoLocation = location;
+        this.setLocationInQueryParams(location);
       });
+  }
+
+  private setLocationInQueryParams(location: Location){
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: {location: location.zipcode},
+        queryParamsHandling: "merge"
+      }
+    );
   }
 }

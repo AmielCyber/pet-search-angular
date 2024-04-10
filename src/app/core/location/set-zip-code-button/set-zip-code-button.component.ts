@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Observable} from "rxjs";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
-import {Location} from "../location.model";
+import {Location} from "../../../models/location.model";
 import {LocationService} from "../location.service";
 import {ZipCodeDialogComponent} from "../zip-code-dialog/zip-code-dialog.component";
 
@@ -32,5 +32,4 @@ export class SetZipCodeButtonComponent {
   private setZipcode(enteredZipCode: string) {
     this.locationService.setLocationFromZipcode(enteredZipCode);
   }
-
 }
