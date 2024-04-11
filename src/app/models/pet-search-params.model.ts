@@ -1,7 +1,5 @@
-import {defaultLocation} from "./location.model";
-import {selectSortInput} from "../data/select-filter.data";
-
 export interface PetSearchParams {
+  type: string;
   location: string;
   page: string | null;
   distance: string | null;
