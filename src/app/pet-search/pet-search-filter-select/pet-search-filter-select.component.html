@@ -1,9 +1,10 @@
-<mat-form-field appearance="outline">
+<mat-form-field appearance="outline" *ngIf="selectInputData">
   <mat-label>{{ selectInputData.labelName }}</mat-label>
   <mat-select
-    [value]="defaultSelectOption.value"
+    [value]="selectedOption?.value"
     panelWidth="auto"
     (selectionChange)="selectionFilterChange($event)"
+    [disabled]="isLoading"
   >
     <mat-option
       *ngFor="let option of selectInputData.optionValues"
