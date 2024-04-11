@@ -19,8 +19,8 @@ export class PetSearchParamsService {
     this.petSearchParams$ = this.petSearchParamsSubject.asObservable();
   }
 
-  setParamsFromQueryParamMap(paramMap: ParamMap): void {
-    const newSearchParams = this.queryParamMapToPetSearchParams(paramMap);
+  setParamsFromQueryParamMap(petType: string, queryParamMap: ParamMap): void {
+    const newSearchParams = this.queryParamMapToPetSearchParams(petType, queryParamMap);
     this.petSearchParamsSubject.next(newSearchParams);
   }
 
@@ -56,13 +56,13 @@ export class PetSearchParamsService {
     this.petSearchParamsSubject.next(newSearchParams);
   }
 
-  private queryParamMapToPetSearchParams(paramMap: ParamMap): PetSearchParams {
-    console.debug(paramMap.get("location"))
+  private queryParamMapToPetSearchParams(petType: string, queryParamMap: ParamMap): PetSearchParams {
     return ({
-      location: paramMap.get("location") ?? this.defaultPetSearchParams.location,
-      page: paramMap.get("page"),
-      distance: paramMap.get("distance"),
-      sort: paramMap.get("sort")
+      type: petType,
+      location: queryParamMap.get("location") ?? this.defaultPetSearchParams.location,
+      page: queryParamMap.get("page"),
+      distance: queryParamMap.get("distance"),
+      sort: queryParamMap.get("sort")
     });
   }
 }
