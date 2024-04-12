@@ -1,0 +1,16 @@
+<div class="container">
+  <div matSnackBarLabel class="heading-container">
+    <mat-icon
+      aria-hidden="true"
+      aria-label="Error"
+      fontIcon="error_outline"
+    ></mat-icon>
+    {{ snackBarDataModel.title }}
+  </div>
+  <div class="detail">
+    <p *ngIf="snackBarDataModel.detail">{{ snackBarDataModel.detail }}</p>
+  </div>
+  <div *ngFor="let msg of errorMessages" class="error-detail">
+    <p>{{ msg }}</p>
+  </div>
+</div>

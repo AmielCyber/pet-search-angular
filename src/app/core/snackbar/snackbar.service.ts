@@ -1,23 +1,33 @@
 import {Injectable} from '@angular/core';
-import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {ProblemDetails} from "get-problem-details";
 
 import {SnackbarData, SnackbarType} from "./snackbar-data.model";
 import {CustomSnackbarComponent} from "./custom-snackbar.component";
+import {ProblemDetailsSnackbarComponent} from "./problem-details-snackbar/problem-details-snackbar.component";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SnackbarService {
-  private configuration: MatSnackBarConfig = {
-    duration: 3000,
-  }
+  private readonly shortDuration = 3000;
+  private readonly problemDetailsDuration = 5000;
 
   constructor(private snackbar: MatSnackBar) {
   }
 
+  problemDetails(problemDetails: ProblemDetails) {
+    this.snackbar.openFromComponent(ProblemDetailsSnackbarComponent, {
+      duration: this.problemDetailsDuration,
+      panelClass: "error-snackbar",
+      data: problemDetails
+    })
+
+  }
+
   success(message: string) {
     this.snackbar.openFromComponent(CustomSnackbarComponent, {
-      ...this.configuration,
+      duration: this.shortDuration,
       panelClass: "success-snackbar",
       data: this.getSnackbarData("success", message),
     },)
@@ -25,7 +35,7 @@ export class SnackbarService {
 
   error(message: string) {
     this.snackbar.openFromComponent(CustomSnackbarComponent, {
-      ...this.configuration,
+      duration: this.shortDuration,
       panelClass: "error-snackbar",
       data: this.getSnackbarData("error", message),
     },)
@@ -33,7 +43,7 @@ export class SnackbarService {
 
   info(message: string) {
     this.snackbar.openFromComponent(CustomSnackbarComponent, {
-      ...this.configuration,
+      duration: this.shortDuration,
       panelClass: "info-snackbar",
       data: this.getSnackbarData("info", message),
     },)
@@ -45,4 +55,5 @@ export class SnackbarService {
       type: snackbarType,
     }
   }
+
 }

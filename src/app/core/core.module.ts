@@ -1,19 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButton, MatFabButton, MatIconButton} from "@angular/material/button";
 import {MatIconAnchor} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {CustomSnackbarComponent} from './snackbar/custom-snackbar.component';
+import {RouterLink} from "@angular/router"
 
-import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
-import { HomeLinkComponent } from './home-link/home-link.component';
-import { ToggleThemeButtonComponent } from './toggle-theme-button/toggle-theme-button.component';
+import {TopNavBarComponent} from './top-nav-bar/top-nav-bar.component';
+import {HomeLinkComponent} from './home-link/home-link.component';
+import {ToggleThemeButtonComponent} from './toggle-theme-button/toggle-theme-button.component';
 import {LocationModule} from "./location/location.module";
-import { CustomSnackbarComponent } from './snackbar/custom-snackbar.component';
-import {RouterLink} from "@angular/router";
-
+import {ProblemDetailsSnackbarComponent} from './snackbar/problem-details-snackbar/problem-details-snackbar.component';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import {RouterLink} from "@angular/router";
     TopNavBarComponent,
     HomeLinkComponent,
     ToggleThemeButtonComponent,
-    CustomSnackbarComponent
+    CustomSnackbarComponent,
+    ProblemDetailsSnackbarComponent
   ],
   exports: [
     TopNavBarComponent
@@ -40,4 +41,5 @@ import {RouterLink} from "@angular/router";
     RouterLink,
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+}
