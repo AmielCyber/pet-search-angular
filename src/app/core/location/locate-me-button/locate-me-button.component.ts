@@ -1,21 +1,18 @@
-import { Component } from '@angular/core';
-import {Observable} from "rxjs";
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 
-import {LocationService} from "../location.service";
+import {HttpRequestState} from "../../../shared/http-request-state";
+import {Location} from "../../../models/location.model";
 
 @Component({
   selector: 'app-locate-me-button',
   templateUrl: './locate-me-button.component.html',
 })
-export class LocateMeButtonComponent{
+export class LocateMeButtonComponent implements OnChanges {
+  @Input({required: true}) locationData?: HttpRequestState<Location>;
+  @Output() locateBrowserLocation = new EventEmitter<void>();
+  isLoading: boolean = this.locationData?.isLoading || !this.locationData?.data;
 
-  isLoading$: Observable<boolean>;
-  constructor(private locationService: LocationService) {
-    this.isLoading$ = locationService.isLoading$;
+  ngOnChanges(): void {
+    this.isLoading = this.locationData?.isLoading || !this.locationData?.data;
   }
-
-  onBrowserLocation(){
-    this.locationService.setLocationFromBrowserGeolocation();
-  }
-
 }

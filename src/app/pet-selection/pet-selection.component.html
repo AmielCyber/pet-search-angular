@@ -2,16 +2,18 @@
   <div class="container">
     <h2 class="mat-headline-2 pet-selection-title">Find your next companion!</h2>
     <div class="pet-selection-container">
-      <a *ngFor="let petSelection of petSelectionList"
-         tabindex="0"
-         [routerLink]="[ROUTER_TOKENS.SEARCH, petSelection.petTypePlural]"
-         [queryParams]="{location: (location$ | async)?.zipcode}"
-      >
-        <app-pet-selection-card
-          [iconName]="petSelection.iconName"
-          [petTypePlural]="petSelection.petTypePlural"
-        />
-      </a>
+      <ng-container *ngIf="locationData$ | async as locationData">
+        <a *ngFor="let petSelection of petSelectionList"
+           tabindex="0"
+           [routerLink]="[ROUTER_TOKENS.SEARCH, petSelection.petTypePlural]"
+           [queryParams]="{location: locationData.data?.zipcode}"
+        >
+          <app-pet-selection-card
+            [iconName]="petSelection.iconName"
+            [petTypePlural]="petSelection.petTypePlural"
+          />
+        </a>
+      </ng-container>
     </div>
   </div>
 </main>

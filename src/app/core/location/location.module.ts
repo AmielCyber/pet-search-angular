@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {LocateMeButtonComponent} from './locate-me-button/locate-me-button.component';
 import {SetZipCodeButtonComponent} from './set-zip-code-button/set-zip-code-button.component';
 import {ZipCodeDialogComponent} from './zip-code-dialog/zip-code-dialog.component';
+import { LocationButtonsComponent } from './location-buttons/location-buttons.component';
 
 
 @NgModule({
@@ -18,10 +19,12 @@ import {ZipCodeDialogComponent} from './zip-code-dialog/zip-code-dialog.componen
     LocateMeButtonComponent,
     SetZipCodeButtonComponent,
     ZipCodeDialogComponent,
+    LocationButtonsComponent,
   ],
   exports: [
     LocateMeButtonComponent,
-    SetZipCodeButtonComponent
+    SetZipCodeButtonComponent,
+    LocationButtonsComponent
   ],
   imports: [
     CommonModule,

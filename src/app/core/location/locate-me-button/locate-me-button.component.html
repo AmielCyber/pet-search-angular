@@ -1,3 +1,8 @@
-<button mat-icon-button aria-label="Locate my zipcode" [disabled]="isLoading$ | async" (click)="onBrowserLocation()">
+<button
+  mat-icon-button
+  aria-label="Locate my zipcode"
+  [disabled]="isLoading"
+  (click)="locateBrowserLocation.emit()"
+>
   <mat-icon fontIcon="near_me" aria-hidden="false">Locate my zipcode</mat-icon>
 </button>

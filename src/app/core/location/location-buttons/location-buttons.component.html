@@ -1,0 +1,10 @@
+<ng-container *ngIf="locationData$ | async as locationData">
+  <app-locate-me-button
+    [locationData]="locationData"
+    (locateBrowserLocation)="onLocateBrowserLocation()"
+  />
+  <app-set-zip-code-button
+    [locationData]="locationData"
+    (setNewZipcode)="onSetNewZipcode($event)"
+  />
+</ng-container>
