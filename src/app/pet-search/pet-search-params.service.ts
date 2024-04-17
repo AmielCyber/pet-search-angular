@@ -1,68 +1,43 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {ParamMap} from "@angular/router";
+import {Params} from "@angular/router";
 
 import {PetSearchParams} from "../models/pet-search-params.model";
+import {availablePetsMap} from "../data/available-pets.data";
 import {defaultPetSearchParams} from "../data/default-pet-search-params.data";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetSearchParamsService {
-  readonly petSearchParams$: Observable<PetSearchParams>;
-
-  private readonly defaultPetSearchParams: PetSearchParams = defaultPetSearchParams;
-  private readonly petSearchParamsSubject: BehaviorSubject<PetSearchParams>;
+  private readonly availablePetsMap: Map<string, string>;
+  private readonly defaultPetSearchParams: PetSearchParams;
 
   constructor() {
-    this.petSearchParamsSubject = new BehaviorSubject<PetSearchParams>({...this.defaultPetSearchParams});
-    this.petSearchParams$ = this.petSearchParamsSubject.asObservable();
+    this.availablePetsMap = availablePetsMap;
+    this.defaultPetSearchParams = defaultPetSearchParams;
   }
 
-  setParamsFromQueryParamMap(petType: string, queryParamMap: ParamMap): void {
-    const newSearchParams = this.queryParamMapToPetSearchParams(petType, queryParamMap);
-    this.petSearchParamsSubject.next(newSearchParams);
+  getDefaultPetSearchParams(): PetSearchParams {
+    return this.defaultPetSearchParams;
   }
 
-  setLocation(zipcode: string): void {
-    const newSearchParams: PetSearchParams = {
-      ...this.petSearchParamsSubject.getValue(),
-      location: zipcode
-    };
-    this.petSearchParamsSubject.next(newSearchParams);
+  isValidPetType(petTypePlural: string | null): boolean {
+    if(petTypePlural)
+      return this.availablePetsMap.has(petTypePlural);
+    return false;
   }
 
-  setPage(pageNumber: number): void {
-    const newSearchParams: PetSearchParams = {
-      ...this.petSearchParamsSubject.getValue(),
-      page: pageNumber.toString(),
-    };
-    this.petSearchParamsSubject.next(newSearchParams);
-  }
-
-  setDistance(distance: string): void {
-    const newSearchParams: PetSearchParams = {
-      ...this.petSearchParamsSubject.getValue(),
-      distance: distance
-    };
-    this.petSearchParamsSubject.next(newSearchParams);
-  }
-
-  setSort(sortBy: string): void {
-    const newSearchParams: PetSearchParams = {
-      ...this.petSearchParamsSubject.getValue(),
-      sort: sortBy
-    };
-    this.petSearchParamsSubject.next(newSearchParams);
-  }
-
-  private queryParamMapToPetSearchParams(petType: string, queryParamMap: ParamMap): PetSearchParams {
+  paramsToPetSearchParams(petTypePlural: string, params: Params): PetSearchParams {
     return ({
-      type: petType,
-      location: queryParamMap.get("location") ?? this.defaultPetSearchParams.location,
-      page: queryParamMap.get("page"),
-      distance: queryParamMap.get("distance"),
-      sort: queryParamMap.get("sort")
+      type: this.getPetTypeFromPluralPetType(petTypePlural),
+      location: params["location"] ?? this.defaultPetSearchParams.location,
+      page: params["page"],
+      distance: params["distance"],
+      sort: params["sort"]
     });
+  }
+
+  private getPetTypeFromPluralPetType(petTypePlural: string): string {
+    return this.availablePetsMap.get(petTypePlural) ?? "";
   }
 }
