@@ -44,6 +44,7 @@ export class LocationService {
     if (this.previousGeoLocation) {
       this.locationSubject.next({isLoading: false, data: this.previousGeoLocation});
       this.snackbarService.success("Updated zipcode from previous browser location!");
+      this.setLocationInQueryParams(this.previousGeoLocation);
     } else if (navigator["geolocation"]) {
       navigator.geolocation.getCurrentPosition(
         (g) => this.setLocationFromGeolocationPosition(g),
