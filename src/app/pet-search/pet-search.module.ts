@@ -7,12 +7,16 @@ import {PetSearchComponent} from './pet-search.component';
 import {PetSearchHeaderComponent} from './pet-search-header/pet-search-header.component';
 import {PetSearchFilterListComponent} from './pet-search-filter-list/pet-search-filter-list.component';
 import {PetSearchFilterSelectComponent} from './pet-search-filter-select/pet-search-filter-select.component';
+import { PetSearchPaginationComponent } from './pet-search-pagination/pet-search-pagination.component';
+import { PetSearchListComponent } from './pet-search-list/pet-search-list.component';
+import {petSearchRouteGuard} from "./pet-search-route.guard";
 
 
 const PET_SEARCH_ROUTES: Routes = [
   {
     path: "",
-    component: PetSearchComponent
+    component: PetSearchComponent,
+    canActivate: [petSearchRouteGuard]
   }
 ]
 
@@ -22,6 +26,8 @@ const PET_SEARCH_ROUTES: Routes = [
     PetSearchHeaderComponent,
     PetSearchFilterListComponent,
     PetSearchFilterSelectComponent,
+    PetSearchPaginationComponent,
+    PetSearchListComponent,
   ],
   imports: [
     CommonModule,
