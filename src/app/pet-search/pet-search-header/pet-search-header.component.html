@@ -1,12 +1,6 @@
 <h2 class="mat-headline-2 pet-search-title">Adoptable {{ petTypePlural }} near</h2>
 <h3 class="mat-headline-5 pet-search-location-name"
-    *ngIf="zipcode !== (location$ | async)?.zipcode else locationDetail"
 >
-  Zipcode {{zipcode}}
+  {{ getLocationDetail(locationData$ | async) }}
 </h3>
-<ng-template #locationDetail>
-  <h3 class="mat-headline-5 pet-search-location-name">
-    {{(location$ | async)?.locationName}}
-  </h3>
-</ng-template>
-<p class="mat-body-1 pet-search-display">Displaying {{ totalCount }} {{ petTypePlural }}</p>
+<p class="mat-body-1 pet-search-display">Displaying {{ numberOfPets | number }} {{ petTypePlural }}</p>

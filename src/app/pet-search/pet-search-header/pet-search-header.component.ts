@@ -1,8 +1,9 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {LocationService} from "../../core/location/location.service";
 import {Observable} from "rxjs";
 
+import {HttpRequestState} from "../../shared/http-request-state";
 import {Location} from "../../models/location.model";
+import {LocationService} from "../../core/location/location.service";
 
 @Component({
   selector: 'app-pet-search-header',
@@ -13,9 +14,18 @@ import {Location} from "../../models/location.model";
 export class PetSearchHeaderComponent {
   @Input({required: true}) petTypePlural?: string;
   @Input({required: true}) zipcode?: string;
-  @Input({required: true}) totalCount?: number;
-  location$: Observable<Location> = this.locationService.location$;
+  @Input({required: true}) numberOfPets: number = 0;
+  locationData$: Observable<HttpRequestState<Location>>;
 
   constructor(private locationService: LocationService) {
+    this.locationData$ = this.locationService.locationData$;
   }
+
+  getLocationDetail(locationData: HttpRequestState<Location> | null): string | undefined {
+    if (locationData)
+      return locationData?.data?.zipcode === this.zipcode ?
+        locationData.data?.locationName : this.zipcode;
+    return this.zipcode;
+  }
+
 }

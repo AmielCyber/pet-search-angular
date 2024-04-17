@@ -16,9 +16,8 @@ export class PetSearchFilterSelectComponent<T> implements OnInit {
   @Output() selectFilterChange = new EventEmitter<T>();
 
   ngOnInit() {
-    if (!this.selectedOption) {
+    if (!this.selectedOption)
       this.selectedOption = this.selectInputData?.defaultSelectedOption;
-    }
   }
 
   selectionFilterChange(selectOption: MatSelectChange): void {

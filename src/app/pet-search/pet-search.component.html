@@ -1,15 +1,13 @@
-<ng-container
-  *ngIf="petTypePlural else invalidPetType"
->
+<ng-container *ngIf="(petListData$ | async) as petListData">
   <app-pet-search-header
-    [locationName]="'San Diego, California'"
     [petTypePlural]="petTypePlural"
-    [totalCount]="3"
-  ></app-pet-search-header>
-  <app-pet-search-filter-list></app-pet-search-filter-list>
+    [zipcode]="petSearchParams.location"
+    [numberOfPets]="petListData.data?.pagination?.total_count ?? 0"/>
+  <app-pet-search-filter-list
+    [initSelectedSortValue]="initialSortValue"
+    [initSelectedDistanceValue]="initialDistanceValue"
+    [isLoading]="petListData.isLoading"
+  />
+  <app-pet-search-list></app-pet-search-list>
+  <app-pet-search-pagination></app-pet-search-pagination>
 </ng-container>
-<ng-template #invalidPetType>
-  <!-- TODO: Set up error page with error message -->
-  {{ petTypeErrorMessage }}
-</ng-template>
-
