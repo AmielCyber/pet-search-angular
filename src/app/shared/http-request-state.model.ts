@@ -1,6 +1,6 @@
 import {HttpErrorResponse} from "@angular/common/http";
 
-export interface HttpRequestStateModel<T> {
+export interface HttpRequestState<T> {
   isLoading: boolean;
   data?: T;
   error?: HttpErrorResponse | Error;
