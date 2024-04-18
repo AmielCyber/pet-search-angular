@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 
-import {HttpRequestState} from "../../../shared/http-request-state";
+import {HttpRequestState} from "../../../shared/http-request-state.model";
 import {Location} from "../../../models/location.model";
 
 @Component({

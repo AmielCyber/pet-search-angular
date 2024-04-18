@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Location, defaultLocation} from "../../models/location.model";
 import {LocationHttpService} from "./location-http.service";
 import {SnackbarService} from "../snackbar/snackbar.service";
-import {HttpRequestState} from "../../shared/http-request-state";
+import {HttpRequestState} from "../../shared/http-request-state.model";
 
 @Injectable({
   providedIn: 'root'
