@@ -6,7 +6,7 @@ export interface Pet {
   type: "Cat" | "Dog"; // May be changed later to support other pet type
   gender: "Male" | "Female" | "Unknown";
   age: "Baby" | "Young" | "Adult" | "Senior";
-  size: "small" | "medium" | "large" | "xlarge";
+  size: "Small" | "Medium" | "Large" | "Xlarge";
   name: string;
   description: string | null;
   photos: PhotoSize[];
