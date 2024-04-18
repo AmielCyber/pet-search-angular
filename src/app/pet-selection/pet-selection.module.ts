@@ -6,6 +6,7 @@ import {MatIcon} from "@angular/material/icon";
 
 import {PetSelectionComponent} from './pet-selection.component';
 import {PetSelectionCardComponent} from './pet-selection-card/pet-selection-card.component';
+import {SharedModule} from "../shared/shared.module";
 
 const PET_SELECTION_ROUTES: Routes = [
   {
@@ -19,12 +20,13 @@ const PET_SELECTION_ROUTES: Routes = [
     PetSelectionComponent,
     PetSelectionCardComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(PET_SELECTION_ROUTES),
-    MatCard,
-    MatIcon,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(PET_SELECTION_ROUTES),
+        MatCard,
+        MatIcon,
+        SharedModule,
+    ]
 })
 export class PetSelectionModule {
 }

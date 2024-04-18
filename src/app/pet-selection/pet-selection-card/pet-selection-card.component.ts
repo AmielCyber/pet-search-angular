@@ -6,6 +6,6 @@ import {Component, Input} from '@angular/core';
   styleUrl: './pet-selection-card.component.sass'
 })
 export class PetSelectionCardComponent {
-  @Input({required: true}) iconName!: string;
-  @Input({required: true}) petTypePlural!: string;
+  @Input({required: true}) petType?: "Dog" | "Cat";
+  @Input({required: true}) petTypePlural?: string;
 }

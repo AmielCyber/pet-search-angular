@@ -1,14 +1,12 @@
 import {Component} from '@angular/core';
-import {MatIconRegistry} from "@angular/material/icon";
-import {DomSanitizer} from "@angular/platform-browser";
 import {Observable} from "rxjs";
 
-import {PetSelection} from "./pet-selection.model";
 import {Location} from "../models/location.model";
-import {petSelectionList} from "./pet-selection-list";
-import {LocationService} from "../core/location/location.service";
+import {PetResource} from "../shared/pet-resource.model";
+import {HttpRequestStateModel} from "../shared/http-request-state.model";
 import {ROUTER_TOKENS} from "../app.routes";
-import {HttpRequestState} from "../shared/http-request-state";
+import {PetIconService} from "../shared/pet-icon/pet-icon.service";
+import {LocationService} from "../core/location/location.service";
 
 @Component({
   selector: 'app-pet-selection',
@@ -17,13 +15,12 @@ import {HttpRequestState} from "../shared/http-request-state";
 })
 export class PetSelectionComponent {
   readonly ROUTER_TOKENS = ROUTER_TOKENS;
-  readonly locationData$: Observable<HttpRequestState<Location>> = this.locationService.locationData$;
-  readonly petSelectionList: PetSelection[] = petSelectionList;
+  readonly locationData$: Observable<HttpRequestStateModel<Location>>;
+  readonly petResourceList: PetResource[];
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private locationService: LocationService) {
-    for (const petSelection of this.petSelectionList) {
-      iconRegistry.addSvgIcon(petSelection.iconName, sanitizer.bypassSecurityTrustResourceUrl(petSelection.resourceUrl));
-    }
+  constructor(private petIconService: PetIconService, private locationService: LocationService) {
+    this.petResourceList = this.petIconService.getPetResourceList();
+    this.locationData$ = this.locationService.locationData$;
   }
 
 }

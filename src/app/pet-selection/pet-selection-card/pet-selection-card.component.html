@@ -1,4 +1,6 @@
 <mat-card class="pet-card">
-  <mat-icon [svgIcon]="iconName" inline color="primary"></mat-icon>
+  <div class="mat-icon">
+    <app-pet-icon [petType]="petType ?? 'Dog'"/>
+  </div>
   <h3 class="pet-text">{{ petTypePlural }}</h3>
 </mat-card>

@@ -3,15 +3,14 @@
     <h2 class="mat-headline-2 pet-selection-title">Find your next companion!</h2>
     <div class="pet-selection-container">
       <ng-container *ngIf="locationData$ | async as locationData">
-        <a *ngFor="let petSelection of petSelectionList"
+        <a *ngFor="let petResource of petResourceList"
            tabindex="0"
-           [routerLink]="[ROUTER_TOKENS.SEARCH, petSelection.petTypePlural]"
+           [routerLink]="[ROUTER_TOKENS.SEARCH, petResource.petTypePlural]"
            [queryParams]="{location: locationData.data?.zipcode}"
         >
           <app-pet-selection-card
-            [iconName]="petSelection.iconName"
-            [petTypePlural]="petSelection.petTypePlural"
-          />
+            [petTypePlural]="petResource.petTypePlural"
+            [petType]="petResource.petType"/>
         </a>
       </ng-container>
     </div>

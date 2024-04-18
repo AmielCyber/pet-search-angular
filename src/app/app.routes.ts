@@ -3,7 +3,7 @@ import {Routes} from "@angular/router";
 export enum ROUTER_TOKENS {
   HOME = "",
   SEARCH = "search",
-  PET = "pet"
+  PETS = "pets"
 }
 
 export const ROUTES: Routes = [
