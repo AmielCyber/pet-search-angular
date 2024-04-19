@@ -1,1 +1,9 @@
-<p>pet-search-list works!</p>
+<ng-container
+  *ngIf="petList">
+  <ol class="pet-list-container">
+    <app-pet-search-card
+      *ngFor="let pet of petList.pets"
+      [pet]="pet"
+    />
+  </ol>
+</ng-container>

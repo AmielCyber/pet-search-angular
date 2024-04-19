@@ -10,7 +10,7 @@ export const petSearchRouteGuard: CanActivateFn = (route, state) => {
 
   const petTypePlural: string | null = route.paramMap.get("petTypePlural");
   const isValidPetType = petSearchParamsService.isValidPetType(petTypePlural);
-  if(!isValidPetType) {
+  if (!isValidPetType) {
     // TODO: Reroute to error page.
     router.navigate([ROUTER_TOKENS.HOME])
     console.error(`Pet type: ${petTypePlural} not supported.`);

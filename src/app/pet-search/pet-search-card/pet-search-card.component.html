@@ -1,0 +1,32 @@
+<li class="pet-card mat-elevation-z4" tabindex="0">
+  <ng-container
+    *ngIf="pet"
+  >
+    <a [routerLink]="['/', ROUTER_TOKENS.PETS, pet.id]">
+      <mat-card class="mat-card">
+        <div class="image-container">
+          <img
+            *ngIf="petImageUrl; else displayPetIcon"
+            mat-card-image
+            [src]="petImageUrl"
+            [alt]="pet.name"
+            loading="lazy"
+            decoding="async"
+          >
+          <ng-template #displayPetIcon>
+            <div class="mat-icon">
+              <app-pet-icon [petType]="pet.type"/>
+            </div>
+          </ng-template>
+        </div>
+        <h6 class="mat-headline-5 card-heading">{{ pet.name }}</h6>
+        <div class="card-description mat-body-1">
+          {{ pet.age }} {{ pet.gender }}
+          <br/>
+          <!-- TODO: Set up custom pipe -->
+          {{ pet.distance | number: '.1-1' }} miles
+        </div>
+      </mat-card>
+    </a>
+  </ng-container>
+</li>

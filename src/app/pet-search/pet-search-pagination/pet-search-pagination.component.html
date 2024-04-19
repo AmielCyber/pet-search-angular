@@ -1,1 +1,14 @@
-<p>pet-search-pagination works!</p>
+<div class="pagination-container">
+  <ng-container *ngIf="pagination">
+    <mat-paginator
+      [length]="pagination.total_count"
+      [pageSize]="pagination.count_per_page"
+      [pageIndex]="pagination.current_page - 1 "
+      (page)="handlePageEvent($event)"
+      aria-label="Select page"
+      color="primary"
+      [disabled]="isLoading"
+      showFirstLastButtons="true"
+    />
+</ng-container>
+</div>

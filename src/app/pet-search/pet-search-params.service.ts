@@ -22,7 +22,7 @@ export class PetSearchParamsService {
   }
 
   isValidPetType(petTypePlural: string | null): boolean {
-    if(petTypePlural)
+    if (petTypePlural)
       return this.availablePetsMap.has(petTypePlural);
     return false;
   }

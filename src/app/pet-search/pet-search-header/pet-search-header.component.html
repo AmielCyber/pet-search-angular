@@ -3,4 +3,10 @@
 >
   {{ getLocationDetail(locationData$ | async) }}
 </h3>
-<p class="mat-body-1 pet-search-display">Displaying {{ numberOfPets | number }} {{ petTypePlural }}</p>
+<ng-container *ngIf="numberOfPets > 0; else empty">
+  <p class="mat-body-1 pet-search-display">Found {{ numberOfPets | number }} {{ petTypePlural }} near you!</p>
+</ng-container>
+<ng-template #empty>
+  <p></p>
+</ng-template>
+

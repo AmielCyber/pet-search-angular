@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Observable} from "rxjs";
 
-import {HttpRequestState} from "../../shared/http-request-state";
+import {HttpRequestState} from "../../shared/http-request-state.model";
 import {Location} from "../../models/location.model";
 import {LocationService} from "../../core/location/location.service";
 

@@ -8,6 +8,5 @@
     [initSelectedDistanceValue]="initialDistanceValue"
     [isLoading]="petListData.isLoading"
   />
-  <app-pet-search-list></app-pet-search-list>
-  <app-pet-search-pagination></app-pet-search-pagination>
+  <app-pet-search-display [petListData]="petListData"/>
 </ng-container>

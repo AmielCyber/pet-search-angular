@@ -3,12 +3,12 @@ import {Observable, Subscription, tap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 
 import {PetSearchParams} from "../models/pet-search-params.model";
-import {HttpRequestState} from "../shared/http-request-state";
+import {HttpRequestState} from "../shared/http-request-state.model";
 import {PetList} from "../models/pet-list.model";
 import {PetListService} from "./pet-list.service";
 import {PetSearchParamsService} from "./pet-search-params.service";
-import {ProblemDetails} from "get-problem-details";
 import {SnackbarService} from "../core/snackbar/snackbar.service";
+import {ProblemDetails} from "get-problem-details";
 
 @Component({
   selector: 'app-pet-search',
