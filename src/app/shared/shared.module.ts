@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 import {PetIconComponent} from "./pet-icon/pet-icon.component";
 import {MatIcon} from "@angular/material/icon";
-
-
 
 @NgModule({
   declarations: [
@@ -18,4 +16,5 @@ import {MatIcon} from "@angular/material/icon";
     PetIconComponent
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

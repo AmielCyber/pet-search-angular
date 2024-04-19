@@ -1,14 +1,14 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+
 import {PetIconService} from "./pet-icon.service";
 import {PetResource} from "../pet-resource.model";
 
 @Component({
   selector: 'app-pet-icon',
   templateUrl: './pet-icon.component.html',
-  styleUrl: './pet-icon.component.sass',
   encapsulation: ViewEncapsulation.None
 })
-export class PetIconComponent implements OnInit{
+export class PetIconComponent implements OnInit {
   @Input({required: true}) petType!: "Dog" | "Cat";
   petResource?: PetResource;
 
