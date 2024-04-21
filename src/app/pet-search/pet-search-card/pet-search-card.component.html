@@ -23,8 +23,7 @@
         <div class="card-description mat-body-1">
           {{ pet.age }} {{ pet.gender }}
           <br/>
-          <!-- TODO: Set up custom pipe -->
-          {{ pet.distance | number: '.1-1' }} miles
+          {{ pet.distance | number: '.1-1' | distanceDescription }}
         </div>
       </mat-card>
     </a>
