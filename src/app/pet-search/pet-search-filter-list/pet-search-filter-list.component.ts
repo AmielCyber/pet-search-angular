@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 import {SelectInputData, SelectOptionData} from "../../models/select-input.model";
 import {selectDistanceInput, selectSortInput} from "../../data/select-filter.data";
+import {PetSearchParamsService} from "../pet-search-params.service";
 
 @Component({
   selector: 'app-pet-search-filter-list',
@@ -20,7 +21,7 @@ export class PetSearchFilterListComponent implements OnInit {
   selectedSortOption?: SelectOptionData<string>;
   selectedDistanceOption?: SelectOptionData<string>;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private petSearchParamsService: PetSearchParamsService) {
   }
 
   ngOnInit() {
@@ -29,25 +30,11 @@ export class PetSearchFilterListComponent implements OnInit {
   }
 
   onSortChange(sortBy: string): void {
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.activatedRoute,
-        queryParams: {sort: sortBy},
-        queryParamsHandling: "merge"
-      }
-    );
+    this.petSearchParamsService.setSortURLQuery(sortBy);
   }
 
   onDistanceChange(distance: string): void {
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.activatedRoute,
-        queryParams: {distance: distance},
-        queryParamsHandling: "merge"
-      }
-    );
+    this.petSearchParamsService.setDistanceURLQuery(distance);
   }
 
   private setSelectedSortOption() {

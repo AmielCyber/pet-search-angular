@@ -14,7 +14,6 @@ import {LocationService} from "../../core/location/location.service";
 export class PetSearchHeaderComponent {
   @Input({required: true}) petTypePlural?: string;
   @Input({required: true}) zipcode?: string;
-  @Input({required: true}) numberOfPets: number = 0;
   locationData$: Observable<HttpRequestState<Location>>;
 
   constructor(private locationService: LocationService) {
@@ -27,5 +26,4 @@ export class PetSearchHeaderComponent {
         locationData.data?.locationName : this.zipcode;
     return this.zipcode;
   }
-
 }

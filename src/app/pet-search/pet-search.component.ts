@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, Subscription, tap} from "rxjs";
+import {Observable, skip, Subscription, tap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 
 import {PetSearchParams} from "../models/pet-search-params.model";
@@ -9,6 +9,7 @@ import {PetListService} from "./pet-list.service";
 import {PetSearchParamsService} from "./pet-search-params.service";
 import {SnackbarService} from "../core/snackbar/snackbar.service";
 import {ProblemDetails} from "get-problem-details";
+import {LocationService} from "../core/location/location.service";
 
 @Component({
   selector: 'app-pet-search',
@@ -24,12 +25,14 @@ export class PetSearchComponent implements OnInit, OnDestroy {
 
   petListData$?: Observable<HttpRequestState<PetList>>;
   queryParamsSub: Subscription;
+  locationSub?: Subscription;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private petListService: PetListService,
     private petSearchParamsService: PetSearchParamsService,
     private snackbarService: SnackbarService,
+    private locationService: LocationService,
   ) {
     this.petTypePlural = this.activatedRoute.snapshot.paramMap.get("petTypePlural") ?? "";
     this.initialSortValue = this.activatedRoute.snapshot.queryParamMap.get("sort") ?? "";
@@ -40,8 +43,7 @@ export class PetSearchComponent implements OnInit, OnDestroy {
       tap(p => {
         this.petSearchParams = this.petSearchParamsService.paramsToPetSearchParams(this.petTypePlural, p);
         this.petListService.updatePetListDataFromParams(this.petSearchParams);
-      })
-    ).subscribe();
+      })).subscribe();
   }
 
   ngOnInit(): void {
@@ -50,10 +52,18 @@ export class PetSearchComponent implements OnInit, OnDestroy {
         if (p.error) this.snackbarService.problemDetails(new ProblemDetails(p.error))
       })
     );
+    this.locationSub = this.locationService.locationData$
+      .pipe(
+        skip(1),
+        tap(l =>
+          this.petSearchParamsService.setLocationURLQuery(l.data?.zipcode ?? this.petSearchParams.location)
+        )
+      ).subscribe();
   }
 
   ngOnDestroy(): void {
-    this.petListService.resetToInitialState();
     this.queryParamsSub.unsubscribe();
+    this.locationSub?.unsubscribe();
+    this.petListService.resetToInitialState();
   }
 }

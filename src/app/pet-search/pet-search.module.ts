@@ -15,6 +15,7 @@ import {PetSearchListComponent} from './pet-search-list/pet-search-list.componen
 import {PetSearchPaginationComponent} from './pet-search-pagination/pet-search-pagination.component';
 import {PetSearchCardComponent} from './pet-search-card/pet-search-card.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { DistanceDescriptionPipe } from './pet-search-card/distance-description.pipe';
 
 const PET_SEARCH_ROUTES: Routes = [
   {
@@ -34,6 +35,7 @@ const PET_SEARCH_ROUTES: Routes = [
     PetSearchListComponent,
     PetSearchPaginationComponent,
     PetSearchCardComponent,
+    DistanceDescriptionPipe,
   ],
   imports: [
     CommonModule,

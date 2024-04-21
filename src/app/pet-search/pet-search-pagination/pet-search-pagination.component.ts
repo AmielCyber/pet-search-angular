@@ -3,6 +3,7 @@ import {PageEvent} from "@angular/material/paginator";
 import {ActivatedRoute, Router} from "@angular/router";
 
 import {Pagination} from "../../models/pagination.model";
+import {PetSearchParamsService} from "../pet-search-params.service";
 
 @Component({
   selector: 'app-pet-search-pagination',
@@ -16,17 +17,10 @@ export class PetSearchPaginationComponent {
   // TODO: Add page size options when backend updated
   // TODO: Customize pagination labels
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private petSearchParamsService: PetSearchParamsService) {
   }
 
   handlePageEvent(pageEvent: PageEvent) {
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.activatedRoute,
-        queryParams: {page: pageEvent.pageIndex + 1},
-        queryParamsHandling: "merge"
-      }
-    );
+    this.petSearchParamsService.setPageURLQuery((pageEvent.pageIndex + 1).toString());
   }
 }
