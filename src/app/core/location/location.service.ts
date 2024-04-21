@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, catchError, EMPTY, tap} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
 
 import {Location, defaultLocation} from "../../models/location.model";
 import {LocationHttpService} from "./location-http.service";
@@ -16,7 +15,7 @@ export class LocationService {
   private readonly locationSubject: BehaviorSubject<HttpRequestState<Location>>;
   private previousGeoLocation?: Location;
 
-  constructor(private locationHttpService: LocationHttpService, private snackbarService: SnackbarService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private locationHttpService: LocationHttpService, private snackbarService: SnackbarService) {
     this.locationSubject =
       new BehaviorSubject<HttpRequestState<Location>>({isLoading: false, data: defaultLocation});
     this.locationData$ = this.locationSubject.asObservable();
@@ -34,7 +33,6 @@ export class LocationService {
         tap(location => {
           this.locationSubject.next({isLoading: false, data: location});
           this.snackbarService.success("Updated entered zipcode!");
-          this.setLocationInQueryParams(location);
         })
       )
       .subscribe();
@@ -44,7 +42,6 @@ export class LocationService {
     if (this.previousGeoLocation) {
       this.locationSubject.next({isLoading: false, data: this.previousGeoLocation});
       this.snackbarService.success("Updated zipcode from previous browser location!");
-      this.setLocationInQueryParams(this.previousGeoLocation);
     } else if (navigator["geolocation"]) {
       navigator.geolocation.getCurrentPosition(
         (g) => this.setLocationFromGeolocationPosition(g),
@@ -69,21 +66,9 @@ export class LocationService {
           this.snackbarService.success("Updated local zipcode!");
           this.locationSubject.next({isLoading: false, data: location})
           this.previousGeoLocation = location;
-          this.setLocationInQueryParams(location);
         })
       )
       .subscribe();
-  }
-
-  private setLocationInQueryParams(location: Location) {
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.activatedRoute,
-        queryParams: {location: location.zipcode},
-        queryParamsHandling: "merge"
-      }
-    );
   }
 
   private getLoadingState(): HttpRequestState<Location> {
