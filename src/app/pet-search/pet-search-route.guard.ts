@@ -2,7 +2,7 @@ import {CanActivateFn, Router} from '@angular/router';
 import {inject} from "@angular/core";
 import {ROUTER_TOKENS} from "../app.routes";
 
-import {PetSearchParamsService} from "./pet-search-params.service";
+import {PetSearchParamsService} from "./services/pet-search-params.service";
 
 export const petSearchRouteGuard: CanActivateFn = (route, state) => {
   const petSearchParamsService = inject(PetSearchParamsService);

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-import {Pet} from "../../models/pet.model";
+import {Pet} from "../../core/models/pet.model";
 import {ROUTER_TOKENS} from "../../app.routes";
 
 @Component({
@@ -8,7 +8,7 @@ import {ROUTER_TOKENS} from "../../app.routes";
   templateUrl: './pet-search-card.component.html',
   styleUrl: './pet-search-card.component.sass'
 })
-export class PetSearchCardComponent implements OnInit{
+export class PetSearchCardComponent implements OnInit {
   @Input({required: true}) pet?: Pet;
   petImageUrl: string | null = null;
 

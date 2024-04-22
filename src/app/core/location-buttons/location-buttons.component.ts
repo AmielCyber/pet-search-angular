@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Observable} from "rxjs";
 
-import {HttpRequestState} from "../../../shared/http-request-state.model";
-import {Location} from "../../../models/location.model";
-import {LocationService} from "../location.service";
+import {HttpRequestState} from "../models/http-request-state.model";
+import {Location} from "../models/location.model";
+import {LocationService} from "../services/location.service";
 
 @Component({
   selector: 'app-location-buttons',

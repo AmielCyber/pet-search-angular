@@ -3,7 +3,7 @@ import {catchError, Observable, throwError} from "rxjs";
 import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
 
 import {environment} from "../../../environments/environment.development";
-import {Location} from "../../models/location.model";
+import {Location} from "../models/location.model";
 
 @Injectable({
   providedIn: 'root'

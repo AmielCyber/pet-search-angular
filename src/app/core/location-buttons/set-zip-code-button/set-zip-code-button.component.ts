@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
-import {HttpRequestState} from "../../../shared/http-request-state.model";
-import {Location} from "../../../models/location.model";
-import {ZipCodeDialogComponent} from "../zip-code-dialog/zip-code-dialog.component";
+import {HttpRequestState} from "../../models/http-request-state.model";
+import {Location} from "../../models/location.model";
+import {ZipCodeDialogComponent} from "../../zip-code-dialog/zip-code-dialog.component";
 
 @Component({
   selector: 'app-set-zip-code-button',

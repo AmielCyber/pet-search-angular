@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 
-import {HttpRequestState} from "../../shared/http-request-state.model";
-import {PetList} from "../../models/pet-list.model";
+import {HttpRequestState} from "../../core/models/http-request-state.model";
+import {PetList} from "../../core/models/pet-list.model";
 
 @Component({
   selector: 'app-pet-search-display',

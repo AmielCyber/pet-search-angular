@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {PetList} from "../../models/pet-list.model";
+import {PetList} from "../../core/models/pet-list.model";
 
 @Component({
   selector: 'app-pet-search-list',

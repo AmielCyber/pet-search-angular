@@ -1,7 +1,4 @@
-export interface Location {
-  zipcode: string;
-  locationName: string;
-}
+import {Location} from "../models/location.model";
 
 export const defaultLocation: Location = {
   zipcode: "92101",

@@ -2,14 +2,14 @@ import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/co
 import {Observable, skip, Subscription, tap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 
-import {PetSearchParams} from "../models/pet-search-params.model";
-import {HttpRequestState} from "../shared/http-request-state.model";
-import {PetList} from "../models/pet-list.model";
-import {PetListService} from "./pet-list.service";
-import {PetSearchParamsService} from "./pet-search-params.service";
-import {SnackbarService} from "../core/snackbar/snackbar.service";
+import {PetSearchParams} from "./models/pet-search-params.model";
+import {HttpRequestState} from "../core/models/http-request-state.model";
+import {PetList} from "../core/models/pet-list.model";
+import {PetListService} from "./services/pet-list.service";
+import {PetSearchParamsService} from "./services/pet-search-params.service";
+import {SnackbarService} from "../shared/snackbar/snackbar.service";
 import {ProblemDetails} from "get-problem-details";
-import {LocationService} from "../core/location/location.service";
+import {LocationService} from "../core/services/location.service";
 
 @Component({
   selector: 'app-pet-search',

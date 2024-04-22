@@ -1,9 +1,8 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
 
-import {SelectInputData, SelectOptionData} from "../../models/select-input.model";
-import {selectDistanceInput, selectSortInput} from "../../data/select-filter.data";
-import {PetSearchParamsService} from "../pet-search-params.service";
+import {SelectInputData, SelectOptionData} from "../models/select-input.model";
+import {selectDistanceInput, selectSortInput} from "../data/select-filter.data";
+import {PetSearchParamsService} from "../services/pet-search-params.service";
 
 @Component({
   selector: 'app-pet-search-filter-list',

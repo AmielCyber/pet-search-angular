@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, catchError, EMPTY, Observable, tap} from "rxjs";
 
-import {PetList} from "../models/pet-list.model";
+import {PetList} from "../../core/models/pet-list.model";
 import {PetSearchParams} from "../models/pet-search-params.model";
-import {PetHttpService} from "./pet-http.service";
-import {HttpRequestState} from "../shared/http-request-state.model";
+import {HttpRequestState} from "../../core/models/http-request-state.model";
+import {PetHttpService} from "../../core/services/pet-http.service";
 
 @Injectable({
   providedIn: 'root'

@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, catchError, EMPTY, tap} from "rxjs";
 
-import {Location, defaultLocation} from "../../models/location.model";
+import {Location} from "../models/location.model"
+import {HttpRequestState} from "../models/http-request-state.model";
 import {LocationHttpService} from "./location-http.service";
-import {SnackbarService} from "../snackbar/snackbar.service";
-import {HttpRequestState} from "../../shared/http-request-state.model";
+import {SnackbarService} from "../../shared/snackbar/snackbar.service";
+import {defaultLocation} from "../data/default-location.data";
 
 @Injectable({
   providedIn: 'root'

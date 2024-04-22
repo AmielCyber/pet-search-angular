@@ -1,44 +1,46 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButton, MatFabButton, MatIconButton} from "@angular/material/button";
-import {MatIconAnchor} from "@angular/material/button";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {CustomSnackbarComponent} from './snackbar/custom-snackbar.component';
 import {RouterLink} from "@angular/router"
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatDialogModule} from "@angular/material/dialog";
 
 import {TopNavBarComponent} from './top-nav-bar/top-nav-bar.component';
 import {HomeLinkComponent} from './home-link/home-link.component';
-import {ToggleThemeButtonComponent} from './toggle-theme-button/toggle-theme-button.component';
-import {LocationModule} from "./location/location.module";
-import {ProblemDetailsSnackbarComponent} from './snackbar/problem-details-snackbar/problem-details-snackbar.component';
+import {LocationButtonsComponent} from './location-buttons/location-buttons.component';
+import {SetZipCodeButtonComponent} from './location-buttons/set-zip-code-button/set-zip-code-button.component';
+import {LocateMeButtonComponent} from './locate-me-button/locate-me-button.component';
+import {ZipCodeDialogComponent} from './zip-code-dialog/zip-code-dialog.component';
+import {ToggleThemeButtonComponent} from './location-buttons/toggle-theme-button/toggle-theme-button.component';
 
 
 @NgModule({
   declarations: [
     TopNavBarComponent,
     HomeLinkComponent,
+    LocationButtonsComponent,
+    SetZipCodeButtonComponent,
+    LocateMeButtonComponent,
+    ZipCodeDialogComponent,
     ToggleThemeButtonComponent,
-    CustomSnackbarComponent,
-    ProblemDetailsSnackbarComponent
   ],
   exports: [
     TopNavBarComponent
   ],
   imports: [
-    MatToolbarModule,
-    MatIconModule,
-    MatFabButton,
-    MatIconButton,
-    MatIconAnchor,
     CommonModule,
-    LocationModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatButton,
+    MatToolbarModule,
     RouterLink,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDialogModule,
   ]
 })
 export class CoreModule {

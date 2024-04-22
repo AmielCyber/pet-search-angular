@@ -1,9 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {PageEvent} from "@angular/material/paginator";
-import {ActivatedRoute, Router} from "@angular/router";
 
-import {Pagination} from "../../models/pagination.model";
-import {PetSearchParamsService} from "../pet-search-params.service";
+import {Pagination} from "../../core/models/pagination.model";
+import {PetSearchParamsService} from "../services/pet-search-params.service";
 
 @Component({
   selector: 'app-pet-search-pagination',
@@ -15,7 +14,6 @@ export class PetSearchPaginationComponent {
   @Input({required: true}) isLoading?: boolean;
 
   // TODO: Add page size options when backend updated
-  // TODO: Customize pagination labels
 
   constructor(private petSearchParamsService: PetSearchParamsService) {
   }

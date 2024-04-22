@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 
-import {HttpRequestState} from "../../../shared/http-request-state.model";
-import {Location} from "../../../models/location.model";
+import {HttpRequestState} from "../models/http-request-state.model";
+import {Location} from "../models/location.model";
 
 @Component({
   selector: 'app-locate-me-button',

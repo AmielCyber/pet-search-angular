@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatSelectChange} from "@angular/material/select";
 
-import {SelectInputData, SelectOptionData} from "../../models/select-input.model";
+import {SelectInputData, SelectOptionData} from "../models/select-input.model";
 
 @Component({
   selector: 'app-pet-search-filter-select',

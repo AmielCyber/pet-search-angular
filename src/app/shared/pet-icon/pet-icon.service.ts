@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 
-import {PetResource} from "../pet-resource.model";
+import {PetResource} from "../models/pet-resource.model";
 
 @Injectable({
   providedIn: 'root'

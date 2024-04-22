@@ -15,6 +15,9 @@ export const ROUTES: Routes = [
   {
     path: `${ROUTER_TOKENS.SEARCH}/:petTypePlural`,
     loadChildren: () => import("./pet-search/pet-search.module").then(m => m.PetSearchModule),
+  },
+  {
+    path: `${ROUTER_TOKENS.PETS}/:petId`,
+    loadChildren: () => import("./pet-details/pet-details.module").then(m => m.PetDetailsModule),
   }
-
-]
+];

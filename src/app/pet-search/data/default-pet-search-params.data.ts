@@ -1,6 +1,5 @@
-import {defaultLocation} from "../models/location.model";
+import {defaultLocation} from "../../core/data/default-location.data";
 import {PetSearchParams} from "../models/pet-search-params.model";
-
 import {selectDistanceInput, selectSortInput} from "./select-filter.data";
 
 export const defaultPetSearchParams: PetSearchParams = {

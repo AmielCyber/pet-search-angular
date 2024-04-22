@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {MatSelectModule} from "@angular/material/select";
 import {MatCardModule} from "@angular/material/card";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 import {SharedModule} from "../shared/shared.module";
 import {PetSearchComponent} from './pet-search.component';
@@ -14,8 +15,7 @@ import {PetSearchDisplayComponent} from './pet-search-display/pet-search-display
 import {PetSearchListComponent} from './pet-search-list/pet-search-list.component';
 import {PetSearchPaginationComponent} from './pet-search-pagination/pet-search-pagination.component';
 import {PetSearchCardComponent} from './pet-search-card/pet-search-card.component';
-import {MatPaginatorModule} from "@angular/material/paginator";
-import { DistanceDescriptionPipe } from './pet-search-card/distance-description.pipe';
+import {DistanceDescriptionPipe} from './pet-search-card/distance-description.pipe';
 
 const PET_SEARCH_ROUTES: Routes = [
   {

@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Observable} from "rxjs";
 
-import {HttpRequestState} from "../../shared/http-request-state.model";
-import {Location} from "../../models/location.model";
-import {LocationService} from "../../core/location/location.service";
+import {HttpRequestState} from "../../core/models/http-request-state.model";
+import {Location} from "../../core/models/location.model";
+import {LocationService} from "../../core/services/location.service";
 
 @Component({
   selector: 'app-pet-search-header',
