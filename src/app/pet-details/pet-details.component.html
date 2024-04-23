@@ -1,1 +1,24 @@
-<p>pet-details works!</p>
+<div class="pet-container">
+  <h2 class="mat-headline-2">{{ decodeHtmlEntityString(pet.name) }}</h2>
+  <div class="pet-attributes-container">
+    <section class="pet-image-container">
+      <mat-card>
+        <img [src]="pet.photos[0].full" [alt]="pet.name" sizes="500px"/>
+      </mat-card>
+    </section>
+    <section class="pet-text-attributes mat-body-1">
+      <app-pet-details-attributes
+        [age]="pet.age"
+        [size]="pet.size"
+        [gender]="pet.size"
+        [status]="pet.status"
+      />
+    </section>
+  </div>
+  <section class="pet-description">
+    <h4 class="mat-headline-4">Description</h4>
+    <p class="mat-body-1">{{ decodeHtmlEntityString(pet.description) }}</p>
+    <!-- TODO: Add link style directive --->
+    <a [href]="pet.url" class="mat-subtitle-1"> More at PetFinder.com</a>
+  </section>
+</div>

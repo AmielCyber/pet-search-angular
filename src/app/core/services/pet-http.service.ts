@@ -6,6 +6,7 @@ import {environment} from "../../../environments/environment.development";
 import {PetSearchParams} from "../../pet-search/models/pet-search-params.model";
 import {PetList} from "../models/pet-list.model";
 import {lol} from "../../pet-search/data/test.data";
+import {Pet} from "../models/pet.model";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,16 @@ export class PetHttpService {
   }
 
   getPetList(petSearchParams: PetSearchParams): Observable<PetList> {
+    // TODO: Remove test to limit backend requests
+    /**
+     return this.http.get<PetList>(this.petsUrl, {params});
+     */
     const params = this.petSearchParamsToHttpParams(petSearchParams);
-    return this.http.get<PetList>(this.petsUrl, {params});
+    return of(lol);
+  }
+
+  getPet(id: number): Observable<Pet> {
+    return this.http.get<Pet>(`${this.petsUrl}/${id}`);
   }
 
   private petSearchParamsToHttpParams(petSearchParams: PetSearchParams): HttpParams {
