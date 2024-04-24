@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 import { PetDetailsComponent } from './pet-details.component';
 import {petIdGuard} from "./pet-id.guard";
@@ -30,6 +32,8 @@ const PET_SEARCH_ROUTES: Routes = [
     RouterModule.forChild(PET_SEARCH_ROUTES),
     MatGridListModule,
     MatCardModule,
+    MatButtonModule,
+    MatIconModule,
   ]
 })
 export class PetDetailsModule { }

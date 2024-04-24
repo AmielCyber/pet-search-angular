@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-pet-details-description',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './pet-details-description.component.sass'
 })
 export class PetDetailsDescriptionComponent {
-
+  @Input({required: true}) description?: string;
+  @Input({required: true}) detailsUrl?: string;
 }

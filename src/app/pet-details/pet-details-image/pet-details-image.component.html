@@ -1,0 +1,42 @@
+<ng-container
+  *ngIf="photosUrl.length > 1; else emptyImage"
+>
+  <mat-card>
+    <div
+      class="pet-image-container"
+    >
+      <img
+        *ngIf="photosUrl"
+        [src]="photosUrl[imageIndex].full"
+        [alt]="name"
+        sizes="500px"
+      />
+      <div class="image-nav-buttons">
+        <button mat-mini-fab color="primary" aria-label="previous image" (click)="handlePreviousClick()">
+          <mat-icon fontIcon="navigate_before"></mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" aria-label="next image" (click)="handleNextClick()">
+          <mat-icon fontIcon="navigate_next"></mat-icon>
+        </button>
+      </div>
+      <div class="nav-dot-buttons">
+        <menu>
+          <li
+            *ngFor="let _ of indices; index as i"
+          >
+            <button
+              mat-icon-button color="primary" (click)="handleImageNavigation(i)"
+            >
+              <mat-icon [fontIcon]="getIconType(i)" aria-hidden="false" ></mat-icon>
+            </button>
+          </li>
+        </menu>
+      </div>
+    </div>
+  </mat-card>
+</ng-container>
+<ng-template #emptyImage>
+  <mat-card class="blank-image">
+      <mat-icon fontIcon="hide_image" aria-hidden="false" aria-label="empty image">Empty</mat-icon>
+  </mat-card>
+</ng-template>
