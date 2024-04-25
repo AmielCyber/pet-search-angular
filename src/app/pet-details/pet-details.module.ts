@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 
-import { PetDetailsComponent } from './pet-details.component';
+import {PetDetailsComponent} from './pet-details.component';
 import {petIdGuard} from "./pet-id.guard";
-import { PetDetailsImageComponent } from './pet-details-image/pet-details-image.component';
-import { PetDetailsAttributesComponent } from './pet-details-attributes/pet-details-attributes.component';
-import { PetDetailsDescriptionComponent } from './pet-details-description/pet-details-description.component';
+import {PetDetailsImageComponent} from './pet-details-image/pet-details-image.component';
+import {PetDetailsAttributesComponent} from './pet-details-attributes/pet-details-attributes.component';
+import {PetDetailsDescriptionComponent} from './pet-details-description/pet-details-description.component';
 
 const PET_SEARCH_ROUTES: Routes = [
   {
@@ -36,4 +36,5 @@ const PET_SEARCH_ROUTES: Routes = [
     MatIconModule,
   ]
 })
-export class PetDetailsModule { }
+export class PetDetailsModule {
+}

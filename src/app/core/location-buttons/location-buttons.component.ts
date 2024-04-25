@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 
 import {HttpRequestState} from "../models/http-request-state.model";
 import {Location} from "../models/location.model";
-import {LocationService} from "../services/location.service";
+import {LocationService} from "../../shared/services/location.service";
 
 @Component({
   selector: 'app-location-buttons',

@@ -1,42 +1,40 @@
-<ng-container
-  *ngIf="photosUrl.length > 1; else emptyImage"
+<mat-card
+  *ngIf="hasImages(); else emptyImage"
 >
-  <mat-card>
-    <div
-      class="pet-image-container"
-    >
-      <img
-        *ngIf="photosUrl"
-        [src]="photosUrl[imageIndex].full"
-        [alt]="name"
-        sizes="500px"
-      />
-      <div class="image-nav-buttons">
-        <button mat-mini-fab color="primary" aria-label="previous image" (click)="handlePreviousClick()">
-          <mat-icon fontIcon="navigate_before"></mat-icon>
+  <div
+    class="pet-image-container"
+  >
+    <img
+      [src]="photoUrl[imageIndex].full"
+      [alt]="name"
+      sizes="500px"
+    />
+    <menu class="image-next-prev-buttons">
+      <li>
+        <button mat-mini-fab color="primary" aria-label="Previous Image" (click)="handlePreviousImage()">
+          <mat-icon fontIcon="navigate_before"/>
         </button>
-        <button mat-mini-fab color="primary" aria-label="next image" (click)="handleNextClick()">
-          <mat-icon fontIcon="navigate_next"></mat-icon>
+      </li>
+      <li>
+        <button mat-mini-fab color="primary" aria-label="Next Image" (click)="handleNextImage()">
+          <mat-icon fontIcon="navigate_next"/>
         </button>
-      </div>
-      <div class="nav-dot-buttons">
-        <menu>
-          <li
-            *ngFor="let _ of indices; index as i"
-          >
-            <button
-              mat-icon-button color="primary" (click)="handleImageNavigation(i)"
-            >
-              <mat-icon [fontIcon]="getIconType(i)" aria-hidden="false" ></mat-icon>
-            </button>
-          </li>
-        </menu>
-      </div>
-    </div>
-  </mat-card>
-</ng-container>
+      </li>
+    </menu>
+    <menu class="navigation-dot-buttons" *ngIf="hasMultipleImages()">
+      <li *ngFor="let _ of navigationDots; index as i">
+        <button mat-icon-button color="primary" (click)="handleImageNavigation(i)">
+          <mat-icon [fontIcon]="getImageNavIconName(i)"/>
+          <span class="cdk-visually-hidden">View image {{ i + 1 }}</span>
+        </button>
+      </li>
+    </menu>
+  </div>
+</mat-card>
 <ng-template #emptyImage>
-  <mat-card class="blank-image">
-      <mat-icon fontIcon="hide_image" aria-hidden="false" aria-label="empty image">Empty</mat-icon>
-  </mat-card>
+  <div class="empty-image">
+    <mat-card>
+      <mat-icon fontIcon="hide_image" aria-hidden="false" aria-label="Empty Image"/>
+    </mat-card>
+  </div>
 </ng-template>

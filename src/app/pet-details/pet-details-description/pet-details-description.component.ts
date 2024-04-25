@@ -6,6 +6,6 @@ import {Component, Input} from '@angular/core';
   styleUrl: './pet-details-description.component.sass'
 })
 export class PetDetailsDescriptionComponent {
-  @Input({required: true}) description?: string;
-  @Input({required: true}) detailsUrl?: string;
+  @Input({required: true}) description: string | null = null;
+  @Input({required: true}) detailsUrl: string = "";
 }

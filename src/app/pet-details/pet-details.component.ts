@@ -1,10 +1,12 @@
-import {Component, SecurityContext} from '@angular/core';
-import {Observable} from "rxjs";
+import {Component} from '@angular/core';
+import {Observable, tap} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
+import {ProblemDetails} from "get-problem-details";
 
+import {HttpRequestState} from "../core/models/http-request-state.model";
 import {Pet} from "../core/models/pet.model";
-import {PetHttpService} from "../core/services/pet-http.service";
-import {DomSanitizer} from "@angular/platform-browser";
-import {petData} from "./pet.data";
+import {PetDetailsService} from "./pet-details.service";
+import {SnackbarService} from "../shared/snackbar/snackbar.service";
 
 @Component({
   selector: 'app-pet-details',
@@ -12,25 +14,16 @@ import {petData} from "./pet.data";
   styleUrl: './pet-details.component.sass'
 })
 export class PetDetailsComponent {
-  // TODO: change to actual data
-  pet: Pet = petData;
-  sanitizedName: string;
-  sanitizedDescription: string;
-  // pet$: Observable<Pet> = this.petHttpService.getPet(70808617);
+  petData$: Observable<HttpRequestState<Pet>>;
 
-  constructor(private petHttpService: PetHttpService, private sanitizer: DomSanitizer) {
-    this.sanitizedName = this.decodeHtmlEntityString(this.pet.name);
-    this.sanitizedDescription = this.decodeHtmlEntityString(this.pet.description);
+  constructor(private activatedRoute: ActivatedRoute, private petDetailsService: PetDetailsService, private snackbarService: SnackbarService) {
+    const petId = this.activatedRoute.snapshot.paramMap.get("petId") ?? "0";
+    this.petData$ = this.petDetailsService.getPet(parseInt(petId))
+      .pipe(
+        tap((pet: HttpRequestState<Pet>) => {
+          if (pet.error)
+            this.snackbarService.problemDetails(new ProblemDetails(pet.error))
+        })
+      );
   }
-
-  decodeHtmlEntityString(encodedStr: string | null): string {
-    const sanitizedStr = this.sanitizer.sanitize(SecurityContext.HTML, encodedStr);
-    if(!sanitizedStr)
-      return "No description provided."
-
-    const tempElement = document.createElement("div");
-    tempElement.innerHTML = sanitizedStr;
-    return tempElement.textContent ?? "";
-  }
-
 }

@@ -1,25 +1,29 @@
 <div class="pet-container">
-  <h2 class="mat-headline-2">{{sanitizedName}}</h2>
-  <div class="pet-attributes-container">
-    <section class="pet-image-container mat-elevation-z10">
-      <app-pet-details-image
-        [photosUrl]="pet.photos"
-        [name]="sanitizedName"
+  <ng-container
+    *ngIf="(petData$ | async)?.data as pet"
+  >
+    <h2 class="mat-headline-2">{{ pet.name }}</h2>
+    <div class="pet-attributes-container">
+      <section class="pet-image-container mat-elevation-z10">
+        <app-pet-details-image
+          [photoUrl]="pet.photos"
+          [name]="pet.name"
+        />
+      </section>
+      <section class="pet-text-attributes mat-body-1">
+        <app-pet-details-attributes
+          [age]="pet.age"
+          [size]="pet.size"
+          [gender]="pet.gender"
+          [status]="pet.status"
+        />
+      </section>
+    </div>
+    <section class="pet-description">
+      <app-pet-details-description
+        [description]="pet.description"
+        [detailsUrl]="pet.name"
       />
     </section>
-    <section class="pet-text-attributes mat-body-1">
-      <app-pet-details-attributes
-        [age]="pet.age"
-        [size]="pet.size"
-        [gender]="pet.gender"
-        [status]="pet.status"
-      />
-    </section>
-  </div>
-  <section class="pet-description">
-    <app-pet-details-description
-      [description]="sanitizedDescription"
-      [detailsUrl]="pet.name"
-    />
-  </section>
+  </ng-container>
 </div>

@@ -9,7 +9,7 @@ import {PetListService} from "./services/pet-list.service";
 import {PetSearchParamsService} from "./services/pet-search-params.service";
 import {SnackbarService} from "../shared/snackbar/snackbar.service";
 import {ProblemDetails} from "get-problem-details";
-import {LocationService} from "../core/services/location.service";
+import {LocationService} from "../shared/services/location.service";
 
 @Component({
   selector: 'app-pet-search',

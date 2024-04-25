@@ -6,7 +6,7 @@ import {PetResource} from "../shared/models/pet-resource.model";
 import {HttpRequestState} from "../core/models/http-request-state.model";
 import {ROUTER_TOKENS} from "../app.routes";
 import {PetIconService} from "../shared/pet-icon/pet-icon.service";
-import {LocationService} from "../core/services/location.service";
+import {LocationService} from "../shared/services/location.service";
 
 @Component({
   selector: 'app-pet-selection',

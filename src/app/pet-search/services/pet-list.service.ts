@@ -4,7 +4,7 @@ import {BehaviorSubject, catchError, EMPTY, Observable, tap} from "rxjs";
 import {PetList} from "../../core/models/pet-list.model";
 import {PetSearchParams} from "../models/pet-search-params.model";
 import {HttpRequestState} from "../../core/models/http-request-state.model";
-import {PetHttpService} from "../../core/services/pet-http.service";
+import {PetHttpService} from "../../shared/services/pet-http.service";
 
 @Injectable({
   providedIn: 'root'

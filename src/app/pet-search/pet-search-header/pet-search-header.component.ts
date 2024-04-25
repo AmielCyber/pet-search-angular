@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 
 import {HttpRequestState} from "../../core/models/http-request-state.model";
 import {Location} from "../../core/models/location.model";
-import {LocationService} from "../../core/services/location.service";
+import {LocationService} from "../../shared/services/location.service";
 
 @Component({
   selector: 'app-pet-search-header',

@@ -16,7 +16,19 @@ export class PetSearchCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.petImageUrl = this.pet?.primary_photo_cropped?.small ?? null;
+    this.petImageUrl = this.getPetImageUrl();
+  }
+
+  private getPetImageUrl(): string | null {
+    if (this.pet) {
+      if (this.pet.primary_photo_cropped) {
+        return this.pet.primary_photo_cropped.small;
+      }
+      if (this.pet.photos.length > 0) {
+        return this.pet.photos[0].small;
+      }
+    }
+    return null;
   }
 
   protected readonly ROUTER_TOKENS = ROUTER_TOKENS;
