@@ -15,10 +15,12 @@ export class LocationService {
 
   private readonly locationSubject: BehaviorSubject<HttpRequestState<Location>>;
   private previousGeoLocation?: Location;
+  private readonly defaultLocation: Location;
 
   constructor(private locationHttpService: LocationHttpService, private snackbarService: SnackbarService) {
+    this.defaultLocation = defaultLocation;
     this.locationSubject =
-      new BehaviorSubject<HttpRequestState<Location>>({isLoading: false, data: defaultLocation});
+      new BehaviorSubject<HttpRequestState<Location>>({isLoading: false, data: this.defaultLocation});
     this.locationData$ = this.locationSubject.asObservable();
   }
 

@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
 })
 export class HomeLinkComponent {
   protected appName = "Pet Search";
-  @Input() homeLink!: string;
+  @Input() homeLink?: string;
 }

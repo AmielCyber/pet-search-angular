@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Observable} from "rxjs";
 
 import {HttpRequestState} from "../models/http-request-state.model";
@@ -8,6 +8,7 @@ import {LocationService} from "../../shared/services/location.service";
 @Component({
   selector: 'app-location-buttons',
   templateUrl: './location-buttons.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LocationButtonsComponent {
   locationData$: Observable<HttpRequestState<Location>>;
