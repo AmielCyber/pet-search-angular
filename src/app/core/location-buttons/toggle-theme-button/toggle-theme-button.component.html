@@ -1,13 +1,14 @@
 <button mat-icon-button aria-label="Toggle Color Theme" (click)="onToggleTheme()">
   <mat-icon
-    *ngIf="isDarkMode;
-    else toggleLightTheme"
+    *ngIf="isDarkMode; else toggleLightTheme"
     fontIcon="light_mode"
     aria-hidden="false"
     aria-label="Set Light Theme"
-  >
-  </mat-icon>
+  />
   <ng-template #toggleLightTheme>
-    <mat-icon fontIcon="dark_mode" aria-hidden="false" aria-label="Set Dark Theme"></mat-icon>
+    <mat-icon
+      fontIcon="dark_mode"
+      aria-hidden="false"
+      aria-label="Set Dark Theme"/>
   </ng-template>
 </button>
