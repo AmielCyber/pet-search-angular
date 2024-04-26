@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Observable} from "rxjs";
 
 import {Location} from "../core/models/location.model";
@@ -11,7 +11,8 @@ import {LocationService} from "../shared/services/location.service";
 @Component({
   selector: 'app-pet-selection',
   templateUrl: './pet-selection.component.html',
-  styleUrl: './pet-selection.component.sass'
+  styleUrl: './pet-selection.component.sass',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PetSelectionComponent {
   readonly ROUTER_TOKENS = ROUTER_TOKENS;
@@ -22,5 +23,4 @@ export class PetSelectionComponent {
     this.petResourceList = this.petIconService.getPetResourceList();
     this.locationData$ = this.locationService.locationData$;
   }
-
 }
