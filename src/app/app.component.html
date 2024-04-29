@@ -1,4 +1,10 @@
 <app-top-nav-bar></app-top-nav-bar>
 <main>
-  <router-outlet></router-outlet>
+  <router-outlet>
+    <mat-progress-bar
+      *ngIf="isLazyLoading"
+      mode="indeterminate"
+      color="accent"
+    />
+  </router-outlet>
 </main>
