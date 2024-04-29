@@ -16,6 +16,8 @@ import {SetZipCodeButtonComponent} from './location-buttons/set-zip-code-button/
 import {LocateMeButtonComponent} from './locate-me-button/locate-me-button.component';
 import {ZipCodeDialogComponent} from './zip-code-dialog/zip-code-dialog.component';
 import {ToggleThemeButtonComponent} from './location-buttons/toggle-theme-button/toggle-theme-button.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import {ToggleThemeButtonComponent} from './location-buttons/toggle-theme-button
     LocateMeButtonComponent,
     ZipCodeDialogComponent,
     ToggleThemeButtonComponent,
+    NotFoundComponent,
+    ErrorPageComponent,
   ],
   exports: [
     TopNavBarComponent
