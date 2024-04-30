@@ -2,8 +2,7 @@
   <ng-container
     *ngIf="pet"
   >
-    <!-- TODO: add data to route link --->
-    <a [routerLink]="['/', ROUTER_TOKENS.PETS, pet.id]">
+    <a [routerLink]="['/', ROUTER_TOKENS.PETS, pet.id]" [state]="{fromSearchRoute: true}" >
       <mat-card class="mat-card">
         <div class="image-container">
           <img

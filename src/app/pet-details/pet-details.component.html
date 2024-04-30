@@ -1,3 +1,11 @@
+<ng-container
+  *ngIf="fromSearchRoute"
+>
+  <button mat-button color="primary" (click)="handleBackClick()">
+    <mat-icon fontIcon="arrow_back"/>
+    <span class="mat-subtitle-1">BACK TO SEARCH RESULTS</span>
+  </button>
+</ng-container>
 <div class="pet-container">
   <ng-container
     *ngIf="(petData$ | async)?.data as pet"
