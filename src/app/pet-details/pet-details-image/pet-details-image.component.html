@@ -9,26 +9,30 @@
       [alt]="name"
       sizes="500px"
     />
-    <menu class="image-next-prev-buttons">
-      <li>
-        <button mat-mini-fab color="primary" aria-label="Previous Image" (click)="handlePreviousImage()">
-          <mat-icon fontIcon="navigate_before"/>
-        </button>
-      </li>
-      <li>
-        <button mat-mini-fab color="primary" aria-label="Next Image" (click)="handleNextImage()">
-          <mat-icon fontIcon="navigate_next"/>
-        </button>
-      </li>
-    </menu>
-    <menu class="navigation-dot-buttons" *ngIf="hasMultipleImages()">
-      <li *ngFor="let _ of navigationDots; index as i">
-        <button mat-icon-button color="primary" (click)="handleImageNavigation(i)">
-          <mat-icon [fontIcon]="getImageNavIconName(i)"/>
-          <span class="cdk-visually-hidden">View image {{ i + 1 }}</span>
-        </button>
-      </li>
-    </menu>
+    <ng-container
+      *ngIf="hasMultipleImages()"
+    >
+      <menu class="image-next-prev-buttons">
+        <li>
+          <button mat-mini-fab color="primary" aria-label="Previous Image" (click)="handlePreviousImage()">
+            <mat-icon fontIcon="navigate_before"/>
+          </button>
+        </li>
+        <li>
+          <button mat-mini-fab color="primary" aria-label="Next Image" (click)="handleNextImage()">
+            <mat-icon fontIcon="navigate_next"/>
+          </button>
+        </li>
+      </menu>
+      <menu class="navigation-dot-buttons">
+        <li *ngFor="let _ of navigationDots; index as i">
+          <button mat-icon-button color="primary" (click)="handleImageNavigation(i)">
+            <mat-icon [fontIcon]="getImageNavIconName(i)"/>
+            <span class="cdk-visually-hidden">View image {{ i + 1 }}</span>
+          </button>
+        </li>
+      </menu>
+    </ng-container>
   </div>
 </mat-card>
 <ng-template #emptyImage>

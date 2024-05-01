@@ -5,7 +5,7 @@ import {PhotoSize} from "../../core/models/photo-size.model";
 @Component({
   selector: 'app-pet-details-image',
   templateUrl: './pet-details-image.component.html',
-  styleUrl: './pet-details-image.component.sass'
+  styleUrl: './pet-details-image.component.sass',
 })
 export class PetDetailsImageComponent implements OnInit {
   @Input({required: true}) photoUrl: PhotoSize[] = [];

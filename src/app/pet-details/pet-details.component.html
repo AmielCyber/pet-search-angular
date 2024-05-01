@@ -7,6 +7,7 @@
   </button>
 </ng-container>
 <div class="pet-container">
+  <!-- TODO: Add loading indicator -->
   <ng-container
     *ngIf="(petData$ | async)?.data as pet"
   >
