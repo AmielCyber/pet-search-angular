@@ -2,7 +2,10 @@
   <ng-container
     *ngIf="pet"
   >
-    <a [routerLink]="['/', ROUTER_TOKENS.PETS, pet.id]" [state]="{fromSearchRoute: true}" >
+    <a (click)="cachePetDetails(pet)"
+       [routerLink]="['/', ROUTER_TOKENS.PETS, pet.id]"
+       [state]="{fromSearchRoute: true}"
+    >
       <mat-card class="mat-card">
         <div class="image-container">
           <img

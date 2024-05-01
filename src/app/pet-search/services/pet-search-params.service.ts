@@ -31,7 +31,7 @@ export class PetSearchParamsService {
     return ({
       type: this.getPetTypeFromPluralPetType(petTypePlural),
       location: params["location"] ?? this.defaultPetSearchParams.location,
-      page: params["page"],
+      page: params["page"] ?? "1",
       distance: params["distance"],
       sort: params["sort"]
     });

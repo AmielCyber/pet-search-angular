@@ -64,6 +64,5 @@ export class PetSearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.queryParamsSub.unsubscribe();
     this.locationSub?.unsubscribe();
-    this.petListService.resetToInitialState();
   }
 }

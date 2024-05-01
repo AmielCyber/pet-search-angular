@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 import {Pet} from "../../core/models/pet.model";
 import {ROUTER_TOKENS} from "../../app.routes";
+import {PetDetailsService} from "../services/pet-details.service";
 
 @Component({
   selector: 'app-pet-search-card',
@@ -12,11 +13,15 @@ export class PetSearchCardComponent implements OnInit {
   @Input({required: true}) pet?: Pet;
   petImageUrl: string | null = null;
 
-  constructor() {
+  constructor(private petDetailsService: PetDetailsService) {
   }
 
   ngOnInit(): void {
     this.petImageUrl = this.getPetImageUrl();
+  }
+
+  cachePetDetails(pet: Pet): void {
+    this.petDetailsService.setCachedPet(pet)
   }
 
   private getPetImageUrl(): string | null {
