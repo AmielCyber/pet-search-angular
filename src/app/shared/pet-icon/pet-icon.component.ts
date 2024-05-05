@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 import {PetIconService} from "./pet-icon.service";
-import {PetResource} from "../models/pet-resource.model";
+import {PetResource} from "./pet-resource.model";
 
 @Component({
   selector: 'app-pet-icon',

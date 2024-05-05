@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: "test"
+  apiUrl: "https://pet-search.azurewebsites.net/api/"
 }

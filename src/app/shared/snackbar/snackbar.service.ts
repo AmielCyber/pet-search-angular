@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ProblemDetails} from "get-problem-details";
 
-import {SnackbarData, SnackbarType} from "../models/snackbar-data.model";
+import {SnackbarData, SnackbarType} from "./snackbar-data.model";
 import {CustomSnackbarComponent} from "./custom-snackbar.component";
 import {ProblemDetailsSnackbarComponent} from "./problem-details-snackbar/problem-details-snackbar.component";
 

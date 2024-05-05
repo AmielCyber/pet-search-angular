@@ -2,11 +2,11 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Observable} from "rxjs";
 
 import {Location} from "../core/models/location.model";
-import {PetResource} from "../shared/models/pet-resource.model";
+import {PetResource} from "../shared/pet-icon/pet-resource.model";
 import {HttpRequestState} from "../core/models/http-request-state.model";
 import {ROUTER_TOKENS} from "../app.routes";
 import {PetIconService} from "../shared/pet-icon/pet-icon.service";
-import {LocationService} from "../shared/services/location.service";
+import {LocationService} from "../core/services/location.service";
 
 @Component({
   selector: 'app-pet-selection',

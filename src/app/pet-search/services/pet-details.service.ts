@@ -2,7 +2,7 @@ import {Injectable, SecurityContext} from '@angular/core';
 import {DomSanitizer} from "@angular/platform-browser";
 import {catchError, map, Observable, of, startWith, tap} from "rxjs";
 
-import {PetHttpService} from "../../shared/services/pet-http.service";
+import {PetHttpService} from "../../core/services/pet-http.service";
 import {HttpRequestState} from "../../core/models/http-request-state.model";
 import {Pet} from "../../core/models/pet.model";
 

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RouterLink} from "@angular/router"
+import {RouterModule} from "@angular/router"
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
@@ -38,7 +38,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
   imports: [
     CommonModule,
     MatToolbarModule,
-    RouterLink,
+    RouterModule,
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,

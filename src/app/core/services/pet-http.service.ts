@@ -4,8 +4,8 @@ import {Observable, of} from "rxjs";
 
 import {environment} from "../../../environments/environment.development";
 import {PetSearchParams} from "../../pet-search/models/pet-search-params.model";
-import {PetList} from "../../core/models/pet-list.model";
-import {Pet} from "../../core/models/pet.model";
+import {PetList} from "../models/pet-list.model";
+import {Pet} from "../models/pet.model";
 
 @Injectable({
   providedIn: 'root'

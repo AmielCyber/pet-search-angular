@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {ROUTER_TOKENS} from "../../app.routes";
-import {ErrorPageService} from "../../shared/services/error-page.service";
+import {ErrorPageService} from "../services/error-page.service";
 
 @Component({
   selector: 'app-error-page',
