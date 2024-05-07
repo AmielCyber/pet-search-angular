@@ -30,10 +30,12 @@ export const ROUTES: Routes = [
   },
   {
     path: `${ROUTER_TOKENS.ERROR}`,
+    title: "Error",
     component: ErrorPageComponent
   },
   {
     path: `${ROUTER_TOKENS.NOT_FOUND}`,
+    title: "Not Found",
     component: NotFoundComponent
   },
 ];
