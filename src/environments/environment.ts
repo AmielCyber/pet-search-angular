@@ -1,3 +1,7 @@
+const apiUrl = "https://pet-search.azurewebsites.net/api/";
 export const environment = {
-  apiUrl: "https://pet-search.azurewebsites.net/api/"
+  apiUrl: apiUrl,
+  locationCoordsUrl: apiUrl + "location/coordinates",
+  locationZipcodeUrl: apiUrl + "location/zipcode",
+  petsUrl: apiUrl + "pets",
 }
