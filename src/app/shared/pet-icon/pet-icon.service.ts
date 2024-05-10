@@ -28,9 +28,7 @@ export class PetIconService {
   ]
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    for (const petResource of this.petResourceList) {
-      iconRegistry.addSvgIcon(petResource.iconName, sanitizer.bypassSecurityTrustResourceUrl(petResource.resourceUrl));
-    }
+    this.registerPetIcons(iconRegistry, sanitizer);
   }
 
   getPetResource(petType: "Dog" | "Cat"): PetResource {
@@ -39,5 +37,11 @@ export class PetIconService {
 
   getPetResourceList(): PetResource[] {
     return this.petResourceList;
+  }
+
+  private registerPetIcons(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    for (const petResource of this.petResourceList) {
+      iconRegistry.addSvgIcon(petResource.iconName, sanitizer.bypassSecurityTrustResourceUrl(petResource.resourceUrl));
+    }
   }
 }
