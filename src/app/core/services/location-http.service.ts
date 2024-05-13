@@ -33,7 +33,7 @@ export class LocationHttpService {
       );
   }
 
-  private handleHttpErrorFromCoordinates(error: HttpErrorResponse) {
+  private handleHttpErrorFromCoordinates(error: HttpErrorResponse): Observable<never> {
     switch (error.status) {
       case 400:
         return throwError(() => new Error("Invalid coordinates entered."))
@@ -44,7 +44,7 @@ export class LocationHttpService {
     }
   }
 
-  private handleHttpErrorFromZipcode(error: HttpErrorResponse) {
+  private handleHttpErrorFromZipcode(error: HttpErrorResponse): Observable<never> {
     switch (error.status) {
       case 400:
         return throwError(() => new Error("Invalid zipcode entered."))

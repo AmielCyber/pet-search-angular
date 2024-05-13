@@ -6,13 +6,13 @@ import {Injectable} from '@angular/core';
 export class ErrorPageService {
   private errorMessage: string = "";
 
-  getLastErrorMessage(){
+  getLastErrorMessage(): string {
     const errorMsg = this.errorMessage;
     this.errorMessage = "";
     return errorMsg;
   }
 
-  setErrorMessage(errorMessage:string){
+  setErrorMessage(errorMessage: string): void {
     this.errorMessage = errorMessage;
   }
 }
