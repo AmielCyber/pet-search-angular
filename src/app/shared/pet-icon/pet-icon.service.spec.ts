@@ -1,8 +1,8 @@
 import {TestBed} from '@angular/core/testing';
-
-import {PetIconService} from './pet-icon.service';
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
+
+import {PetIconService} from './pet-icon.service';
 
 describe('PetIconService', () => {
   let service: PetIconService;

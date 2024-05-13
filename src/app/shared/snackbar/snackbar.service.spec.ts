@@ -1,9 +1,9 @@
 import {TestBed} from '@angular/core/testing';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {ProblemDetails} from "get-problem-details";
 
 import {SnackbarService} from './snackbar.service';
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {SnackbarPanelClass, SnackbarType} from "./snackbar-data.model";
-import {ProblemDetails} from "get-problem-details";
 
 describe('SnackbarService', () => {
   let service: SnackbarService;
