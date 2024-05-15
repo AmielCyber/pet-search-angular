@@ -1,12 +1,12 @@
 <div class="container">
-  <div matSnackBarLabel class="heading-container">
+  <h4 matSnackBarLabel class="heading-container">
     <mat-icon
       aria-hidden="true"
       aria-label="Error"
       fontIcon="error_outline"
     ></mat-icon>
     {{ snackBarDataModel.title }}
-  </div>
+  </h4>
   <div class="detail">
     <p *ngIf="snackBarDataModel.detail">{{ snackBarDataModel.detail }}</p>
   </div>
