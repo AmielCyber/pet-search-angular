@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {HttpRequestState} from "../../models/http-request-state.model";
 import {Location} from "../../models/location.model";
 import {ZipCodeDialogComponent} from "../../zip-code-dialog/zip-code-dialog.component";
+import {defaultLocation} from "../../data/default-location.data";
 
 @Component({
   selector: 'app-set-zip-code-button',
@@ -12,20 +13,21 @@ import {ZipCodeDialogComponent} from "../../zip-code-dialog/zip-code-dialog.comp
 export class SetZipCodeButtonComponent implements OnChanges {
   @Input({required: true}) locationData?: HttpRequestState<Location>;
   @Output() setNewZipcode: EventEmitter<string>;
-  isLoading: boolean;
+  isLoading: boolean = true;
   zipcode: string;
 
   private readonly zipCodeDialogConfig = {position: {top: "10%"}}
 
   constructor(public dialog: MatDialog) {
     this.setNewZipcode = new EventEmitter<string>();
-    this.isLoading = this.locationData?.isLoading || !this.locationData?.data;
-    this.zipcode = this.locationData?.data?.zipcode ?? "00000";
+    this.zipcode = defaultLocation.zipcode;
   }
 
   ngOnChanges(): void {
     this.isLoading = this.locationData?.isLoading || !this.locationData?.data;
-    this.zipcode = this.locationData?.data?.zipcode ?? "00000";
+    if(this.locationData?.data){
+      this.zipcode = this.locationData.data.zipcode;
+    }
   }
 
   openZipcodeDialog(): void {

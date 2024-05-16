@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 
 import {HttpRequestState} from "../models/http-request-state.model";
@@ -10,10 +10,13 @@ import {LocationService} from "../services/location.service";
   templateUrl: './location-buttons.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LocationButtonsComponent {
-  locationData$: Observable<HttpRequestState<Location>>;
+export class LocationButtonsComponent implements OnInit {
+  locationData$?: Observable<HttpRequestState<Location>>;
 
   constructor(private locationService: LocationService) {
+  }
+
+  ngOnInit(): void {
     this.locationData$ = this.locationService.locationData$;
   }
 
@@ -24,4 +27,5 @@ export class LocationButtonsComponent {
   onSetNewZipcode(zipcode: string): void {
     this.locationService.setLocationFromZipcode(zipcode);
   }
+
 }
