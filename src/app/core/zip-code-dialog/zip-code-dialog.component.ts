@@ -21,10 +21,14 @@ export class ZipCodeDialogComponent {
   constructor(public dialogRef: MatDialogRef<ZipCodeDialogComponent, string>) {
   }
 
-  onClose(): void {
+  onSubmit(): void {
     const enteredZipcode: string | undefined = this.zipcodeForm.valid ?
       this.zipcodeForm.controls.zipcode.value : undefined;
 
     this.dialogRef.close(enteredZipcode);
+  }
+
+  onCancel(): void {
+    this.dialogRef.close(undefined);
   }
 }

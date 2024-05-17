@@ -7,7 +7,7 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
-      require("karma-firefox-launcher"),
+      require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -28,12 +28,12 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/pet-search-angular'),
       subdir: '.',
       reporters: [
-        {type: 'html'},
-        {type: 'text-summary'}
+        { type: 'html' },
+        { type: 'text-summary' }
       ]
     },
     reporters: ['progress', 'kjhtml'],
-    browsers: ["FirefoxDeveloper"],
+    browsers: ['Chrome'],
     restartOnFileChange: true
   });
 };
