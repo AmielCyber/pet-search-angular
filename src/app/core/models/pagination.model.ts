@@ -1,6 +1,6 @@
 export interface Pagination {
-  count_per_page: number;
-  total_count: number;
-  current_page: number;
-  total_pages: number;
+  pageSize: number;
+  totalCount: number;
+  currentPage: number;
+  totalPages: number;
 }

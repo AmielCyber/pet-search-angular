@@ -26,8 +26,8 @@ export class PetSearchCardComponent implements OnInit {
 
   private getPetImageUrl(): string | null {
     if (this.pet) {
-      if (this.pet.primary_photo_cropped) {
-        return this.pet.primary_photo_cropped.small;
+      if (this.pet.primaryPhotoCropped) {
+        return this.pet.primaryPhotoCropped.small;
       }
       if (this.pet.photos.length > 0) {
         return this.pet.photos[0].small;

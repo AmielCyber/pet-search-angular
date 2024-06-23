@@ -1,9 +1,9 @@
 <div class="pagination-container">
   <ng-container *ngIf="pagination">
     <mat-paginator
-      [length]="pagination.total_count"
-      [pageSize]="pagination.count_per_page"
-      [pageIndex]="pagination.current_page - 1 "
+      [length]="pagination.totalCount"
+      [pageSize]="pagination.pageSize"
+      [pageIndex]="pagination.currentPage - 1 "
       (page)="handlePageEvent($event)"
       aria-label="Select page"
       color="primary"

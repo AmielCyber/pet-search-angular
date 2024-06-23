@@ -55,10 +55,10 @@ export class PetListService {
     return {
       pets: [],
       pagination: {
-        count_per_page: 0,
-        total_count: 0,
-        current_page: 0,
-        total_pages: 0
+        pageSize: 0,
+        totalCount: 0,
+        currentPage: 0,
+        totalPages: 0
       }
     };
   }
