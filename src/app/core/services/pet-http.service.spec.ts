@@ -167,7 +167,7 @@ function getExpectedPetData(): Pet {
     id: 0,
     name: "",
     photos: [],
-    primary_photo_cropped: null,
+    primaryPhotoCropped: null,
     size: "Medium",
     status: "",
     type: "Dog",
@@ -179,10 +179,10 @@ function getExpectedPetListData(): PetList {
   return {
     pets: [],
     pagination: {
-      count_per_page: 0,
-      total_count: 0,
-      current_page: 0,
-      total_pages: 0
+      pageSize: 0,
+      totalCount: 0,
+      currentPage: 0,
+      totalPages: 0
     }
   }
 }

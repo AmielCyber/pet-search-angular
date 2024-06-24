@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:5111/api/";
+const apiUrl = "http://localhost:5005/api/";
 export const environment = {
   apiUrl: apiUrl,
   locationCoordsUrl: apiUrl + "location/coordinates",

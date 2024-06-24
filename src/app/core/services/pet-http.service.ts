@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 
 import {environment} from "../../../environments/environment";
 import {PetSearchParams} from "../../pet-search/models/pet-search-params.model";
 import {PetList} from "../models/pet-list.model";
 import {Pet} from "../models/pet.model";
+import {Pagination} from "../models/pagination.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,17 @@ export class PetHttpService {
 
   getPetList(petSearchParams: PetSearchParams): Observable<PetList> {
     const params = this.petSearchParamsToHttpParams(petSearchParams);
-    return this.http.get<PetList>(this.petsUrl, {params});
+    return this.http.get<Pet[]>(this.petsUrl, {params, observe: "response"}).pipe(
+        map(response => {
+          const petList: Pet[] = response.body ?? [];
+          console.log(response.headers)
+          const pagination: Pagination = JSON.parse(response.headers.get("X-Pagination") ?? "") as Pagination;
+          return ({
+            pets: petList,
+            pagination: pagination
+          })
+        })
+      );
   }
 
   getPet(id: number): Observable<Pet> {
