@@ -2,7 +2,7 @@ import {ActivatedRouteSnapshot, CanActivateFn, Router} from '@angular/router';
 import {inject} from "@angular/core";
 
 import {ErrorPageService} from "../core/services/error-page.service";
-import {ROUTER_TOKENS} from "../app.routes";
+import {ROUTER_TOKENS} from "../routes/router-tokens.model";
 
 export const petIdGuard: CanActivateFn = (route: ActivatedRouteSnapshot): boolean => {
   const router = inject(Router);

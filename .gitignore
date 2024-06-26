@@ -41,3 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 src/app/pet-search/data/test.data.ts
+.vscode/extensions.json
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/tasks.json

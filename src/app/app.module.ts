@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {HttpClientModule} from "@angular/common/http";
+import {provideHttpClient} from "@angular/common/http";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 
-import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingModule} from './routes/app-routing.module';
 import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
 import {AppComponent} from './app.component';
@@ -18,10 +18,10 @@ import {AppComponent} from './app.component';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    HttpClientModule,
     MatProgressBarModule,
   ],
   providers: [
+    provideHttpClient(),
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

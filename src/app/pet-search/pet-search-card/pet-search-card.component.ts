@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {Pet} from "../../core/models/pet.model";
-import {ROUTER_TOKENS} from "../../app.routes";
+import {ROUTER_TOKENS} from "../../routes/router-tokens.model";
 import {PetDetailsService} from "../services/pet-details.service";
 
 @Component({

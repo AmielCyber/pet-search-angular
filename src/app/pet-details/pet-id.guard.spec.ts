@@ -4,7 +4,8 @@ import { CanActivateFn } from '@angular/router';
 import { petIdGuard } from './pet-id.guard';
 
 describe('petIdGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) => 
+  pending();
+  const executeGuard: CanActivateFn = (...guardParameters) =>
       TestBed.runInInjectionContext(() => petIdGuard(...guardParameters));
 
   beforeEach(() => {

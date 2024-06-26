@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 
 import {environment} from "../../../environments/environment";
-import {PetSearchParams} from "../../pet-search/models/pet-search-params.model";
+import {PetSearchParams} from "../models/pet-search-params.model";
 import {PetList} from "../models/pet-list.model";
 import {Pet} from "../models/pet.model";
 import {Pagination} from "../models/pagination.model";
@@ -13,6 +13,9 @@ import {Pagination} from "../models/pagination.model";
 })
 export class PetHttpService {
   private readonly petsUrl = environment.petsUrl;
+  private readonly defaultPagination: Pagination = {
+    currentPage: 0, pageSize: 0, totalCount: 0, totalPages: 0
+  }
 
   constructor(private http: HttpClient) {
   }
@@ -20,16 +23,17 @@ export class PetHttpService {
   getPetList(petSearchParams: PetSearchParams): Observable<PetList> {
     const params = this.petSearchParamsToHttpParams(petSearchParams);
     return this.http.get<Pet[]>(this.petsUrl, {params, observe: "response"}).pipe(
-        map(response => {
-          const petList: Pet[] = response.body ?? [];
-          console.log(response.headers)
-          const pagination: Pagination = JSON.parse(response.headers.get("X-Pagination") ?? "") as Pagination;
-          return ({
-            pets: petList,
-            pagination: pagination
-          })
+      map(response => {
+        const petList: Pet[] = response.body ?? [];
+        let pagination: unknown = JSON.parse(response.headers.get("X-Pagination") ?? "null");
+        if (pagination === null)
+          pagination = this.defaultPagination;
+        return ({
+          pets: petList,
+          pagination: pagination as Pagination
         })
-      );
+      })
+    );
   }
 
   getPet(id: number): Observable<Pet> {

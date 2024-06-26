@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import {ROUTER_TOKENS} from "../../app.routes";
+import {ROUTER_TOKENS} from "../../routes/router-tokens.model";
 import {ErrorPageService} from "../services/error-page.service";
 
 @Component({

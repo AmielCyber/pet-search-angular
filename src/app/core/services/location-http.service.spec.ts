@@ -1,8 +1,8 @@
 import {TestBed} from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
+import {HttpTestingController, provideHttpClientTesting} from "@angular/common/http/testing";
 
 import {LocationHttpService} from './location-http.service';
-import {HttpParams} from "@angular/common/http";
+import {HttpParams, provideHttpClient} from "@angular/common/http";
 import {defaultLocation} from "../data/default-location.data";
 import {catchError, EMPTY, tap} from "rxjs";
 
@@ -12,7 +12,10 @@ describe('LocationHttpService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     });
     service = TestBed.inject(LocationHttpService);
     httpTestingController = TestBed.inject(HttpTestingController);

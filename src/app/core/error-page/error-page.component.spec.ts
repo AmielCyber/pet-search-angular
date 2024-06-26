@@ -4,7 +4,7 @@ import {By} from "@angular/platform-browser";
 
 import {ErrorPageComponent} from './error-page.component';
 import {ErrorPageService} from "../services/error-page.service";
-import {ROUTER_TOKENS} from "../../app.routes";
+import {ROUTER_TOKENS} from "../../routes/router-tokens.model";
 
 @Directive({
   selector: '[routerLink]',
@@ -19,7 +19,7 @@ class RouterLinkDirectiveStub {
   }
 }
 
-describe('ErrorPageComponent', () => {
+describe(ErrorPageComponent.name, () => {
   let component: ErrorPageComponent;
   let fixture: ComponentFixture<ErrorPageComponent>;
   let mockErrorPageService: jasmine.SpyObj<ErrorPageService>;
@@ -80,6 +80,6 @@ describe('ErrorPageComponent', () => {
     routerLinkElement.triggerEventHandler("click");
 
     const routerLink: RouterLinkDirectiveStub = routerLinkElement.injector.get(RouterLinkDirectiveStub);
-    expect(routerLink.navigateTo).toBe(ROUTER_TOKENS.HOME)
+    expect(routerLink.navigateTo).toBe(ROUTER_TOKENS.HOME);
   });
 });

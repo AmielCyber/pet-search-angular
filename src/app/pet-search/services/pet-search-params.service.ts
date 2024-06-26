@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 
-import {PetSearchParams} from "../models/pet-search-params.model";
+import {PetSearchParams} from "../../core/models/pet-search-params.model";
 import {availablePetsMap} from "../data/available-pets.data";
 import {defaultPetSearchParams} from "../data/default-pet-search-params.data";
 

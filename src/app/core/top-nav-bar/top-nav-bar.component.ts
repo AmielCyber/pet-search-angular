@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
-import {ROUTER_TOKENS} from "../../app.routes";
+import {ROUTER_TOKENS} from "../../routes/router-tokens.model";
 
 @Component({
   selector: 'app-top-nav-bar',

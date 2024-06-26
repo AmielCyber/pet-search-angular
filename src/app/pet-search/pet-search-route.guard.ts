@@ -1,7 +1,7 @@
 import {CanActivateFn, Router} from '@angular/router';
 import {inject} from "@angular/core";
 
-import {ROUTER_TOKENS} from "../app.routes";
+import {ROUTER_TOKENS} from "../routes/router-tokens.model";
 import {PetSearchParamsService} from "./services/pet-search-params.service";
 import {ErrorPageService} from "../core/services/error-page.service";
 
