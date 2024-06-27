@@ -46,3 +46,6 @@ src/app/pet-search/data/test.data.ts
 .vscode/launch.json
 .vscode/tasks.json
 .vscode/tasks.json
+.vscode/extensions.json
+.vscode/extensions.json
+.vscode/launch.json

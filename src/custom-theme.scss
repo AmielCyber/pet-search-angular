@@ -1,5 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+@use "custom_component";
 @use '@angular/material' as mat;
 @use "pet-search-theme";
 // Plus imports for other components in your app.
@@ -31,29 +32,20 @@ $pet-search-dark-theme: mat.define-theme((
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.
 // For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
-@include mat.typography-hierarchy(mat.define-typography());
+$pet-search-typography: mat.define-typography();
+@include mat.typography-hierarchy($pet-search-typography);
 
 mat.$theme-ignore-duplication-warnings: true;
-
-@mixin component-theme($theme){
-  mat-toolbar {
-    @if(mat.get-theme-type($theme) == light){
-      background: mat.get-theme-color($theme, primary, 70);
-    }
-  }
-}
 
 
 .theme-dark {
   @include mat.all-component-themes($pet-search-dark-theme);
-  @include mat.color-variants-backwards-compatibility($pet-search-dark-theme);
-  @include component-theme($pet-search-dark-theme)
+  @include custom_component.set_theme($pet-search-dark-theme)
 }
 
 .theme-light {
   @include mat.all-component-themes($pet-search-light-theme);
-  @include mat.color-variants-backwards-compatibility($pet-search-light-theme);
-  @include component-theme($pet-search-light-theme)
+  @include custom_component.set_theme($pet-search-light-theme)
 }
 
 html, body { height: 100%; }
