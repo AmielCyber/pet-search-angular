@@ -1,6 +1,7 @@
 <div class="container">
+  <h4 class="heading-container">
   <div matSnackBarLabel class="snack-label">
-    <div [ngSwitch]="snackBarDataModel.type">
+    <ng-container [ngSwitch]="snackBarDataModel.type">
       <mat-icon *ngSwitchCase="'success'"
                 aria-hidden="true"
                 aria-label="Success"
@@ -16,9 +17,8 @@
                 aria-label="Info"
                 fontIcon="info_outline"
       ></mat-icon>
-    </div>
-    <h4 class="header-message">
+    </ng-container>
       {{ snackBarDataModel.message }}
-    </h4>
   </div>
+  </h4>
 </div>
