@@ -1,10 +1,10 @@
 import {TestBed} from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
+import {HttpTestingController, provideHttpClientTesting} from "@angular/common/http/testing";
 
-import {PetHttpService} from './pet-http.service';
-import {Pet} from "../models/pet.model";
+import {PetHttpService} from './pet-http.service'; import {Pet} from "../models/pet.model";
 import {PetList} from "../models/pet-list.model";
-import {PetSearchParams} from "../../pet-search/models/pet-search-params.model";
+import {PetSearchParams} from "../models/pet-search-params.model";
+import {provideHttpClient} from "@angular/common/http";
 
 describe('PetHttpService', () => {
   let service: PetHttpService;
@@ -12,7 +12,10 @@ describe('PetHttpService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     });
     service = TestBed.inject(PetHttpService);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -22,7 +25,6 @@ describe('PetHttpService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
   describe("getPetList", () => {
     it("should call with the correct url", () => {
       const expectedUrl = service["petsUrl"];
@@ -133,7 +135,7 @@ describe('PetHttpService', () => {
     })
   })
 
-  describe("getPetList", () => {
+  describe("getPet", () => {
     it("should call with the correct url", () => {
       const petId = 0;
       const expectedUrl = service["petsUrl"] + "/" + petId;
@@ -156,6 +158,8 @@ describe('PetHttpService', () => {
     })
 
   })
+
+
 });
 
 function getExpectedPetData(): Pet {

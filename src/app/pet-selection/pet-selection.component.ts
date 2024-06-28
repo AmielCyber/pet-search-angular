@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {Location} from "../core/models/location.model";
 import {PetResource} from "../shared/pet-icon/pet-resource.model";
 import {HttpRequestState} from "../core/models/http-request-state.model";
-import {ROUTER_TOKENS} from "../app.routes";
+import {ROUTER_TOKENS} from "../routes/router-tokens.model";
 import {PetIconService} from "../shared/pet-icon/pet-icon.service";
 import {LocationService} from "../core/services/location.service";
 

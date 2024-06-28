@@ -1,4 +1,4 @@
-<li class="pet-card mat-elevation-z4" tabindex="0">
+<li tabindex="0">
   <ng-container
     *ngIf="pet"
   >
@@ -6,7 +6,7 @@
        [routerLink]="['/', ROUTER_TOKENS.PETS, pet.id]"
        [state]="{fromSearchRoute: true}"
     >
-      <mat-card class="mat-card">
+      <mat-card class="mat-card pet-search-card">
         <div class="image-container">
           <img
             *ngIf="petImageUrl; else displayPetIcon"

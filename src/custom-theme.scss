@@ -1,8 +1,8 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+@use "app/styles/custom_component";
 @use '@angular/material' as mat;
-@use "custom-palette" as myPalette;
+@use "app/styles/pet-search-theme";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -10,49 +10,43 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$pet-search-primary-light-theme: mat.define-palette(myPalette.$primary-light-theme-palette);
-$pet-search-accent-light-theme: mat.define-palette(myPalette.$secondary-light-theme-palette);
-$pet-search-primary-dark-theme: mat.define-palette(myPalette.$primary-dark-theme-palette);
-$pet-search-accent-dark-theme: mat.define-palette(myPalette.$secondary-dark-theme-palette);
-
-// The warn palette is optional (defaults to red).
-$pet-search-angular-warn: mat.define-palette(mat.$red-palette);
-
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$pet-search-light-theme: mat.define-light-theme((
+// Define the theme object.
+$pet-search-light-theme: mat.define-theme((
   color: (
-    primary: $pet-search-primary-light-theme,
-    accent: $pet-search-accent-light-theme,
-  ),
+    theme-type: light,
+    primary: pet-search-theme.$primary_palette,
+    tertiary: pet-search-theme.$tertiary_palette,
+  )
 ));
-$pet-search-dark-theme: mat.define-dark-theme((
+$pet-search-dark-theme: mat.define-theme((
   color: (
-    primary: $pet-search-primary-dark-theme,
-    accent: $pet-search-accent-dark-theme,
-  ),
+    theme-type: dark,
+    primary: pet-search-theme.$primary_palette,
+    tertiary: pet-search-theme.$tertiary_palette,
+  )
 ));
-
-$pet-search-typography: mat.define-typography-config();
-@include mat.typography-hierarchy($pet-search-typography);
-@include mat.all-component-densities(0);
-
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+$pet-search-typography: mat.define-typography();
+@include mat.typography-hierarchy($pet-search-typography);
+
+mat.$theme-ignore-duplication-warnings: true;
+
+
 .theme-dark {
-  @include mat.all-component-colors($pet-search-dark-theme);
+  @include mat.all-component-themes($pet-search-dark-theme);
+  @include custom_component.set_theme($pet-search-dark-theme)
 }
 
 .theme-light {
-  @include mat.all-component-colors($pet-search-light-theme);
+  @include mat.all-component-themes($pet-search-light-theme);
+  @include custom_component.set_theme($pet-search-light-theme)
 }
-
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

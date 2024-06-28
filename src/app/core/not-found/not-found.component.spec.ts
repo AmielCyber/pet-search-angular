@@ -1,9 +1,9 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {Directive, Input} from "@angular/core";
 import {By} from "@angular/platform-browser";
 
 import {NotFoundComponent} from './not-found.component';
-import {ROUTER_TOKENS} from "../../app.routes";
+import {ROUTER_TOKENS} from "../../routes/router-tokens.model"
 
 @Directive({
   selector: '[routerLink]',
@@ -18,20 +18,21 @@ class RouterLinkDirectiveStub {
   }
 }
 
-describe('NotFoundComponent', () => {
+describe(NotFoundComponent.name, () => {
   let component: NotFoundComponent;
   let fixture: ComponentFixture<NotFoundComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       declarations: [NotFoundComponent, RouterLinkDirectiveStub]
-    })
-      .compileComponents();
-
+    }).compileComponents();
+  }));
+  beforeEach(() => {
     fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  })
+
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -58,4 +59,5 @@ describe('NotFoundComponent', () => {
     const routerLink: RouterLinkDirectiveStub = routerLinkElement.injector.get(RouterLinkDirectiveStub);
     expect(routerLink.navigateTo).toBe(ROUTER_TOKENS.HOME)
   });
+
 });

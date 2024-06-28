@@ -12,7 +12,7 @@
         autocomplete="postal-code"
         required
       />
-      <mat-icon matSuffix fontIcon="location_on" color="primary"></mat-icon>
+      <mat-icon matSuffix fontIcon="location_on" class="icon-color" ></mat-icon>
       <mat-hint *ngIf="zipcodeForm.invalid">Enter a 5 digit zip code.</mat-hint>
       <mat-error *ngIf="zipcodeForm.invalid">
         Please enter a valid 5 digit zip code.
@@ -20,7 +20,7 @@
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions align="center">
-    <button mat-button type="button" color="accent" (click)="onCancel()">Cancel</button>
-    <button mat-button type="submit" color="primary" [disabled]="zipcodeForm.invalid">Submit</button>
+    <button mat-button type="button" class="accent-button" (click)="onCancel()">Cancel</button>
+    <button mat-button type="submit" [disabled]="zipcodeForm.invalid">Submit</button>
   </mat-dialog-actions>
 </form>

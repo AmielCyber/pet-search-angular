@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, catchError, EMPTY, Observable, tap} from "rxjs";
 
 import {PetList} from "../../core/models/pet-list.model";
-import {PetSearchParams} from "../models/pet-search-params.model";
+import {PetSearchParams} from "../../core/models/pet-search-params.model";
 import {HttpRequestState} from "../../core/models/http-request-state.model";
 import {PetHttpService} from "../../core/services/pet-http.service";
 import {PetListCacheService} from "./pet-list-cache.service";
