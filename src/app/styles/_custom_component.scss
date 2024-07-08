@@ -45,6 +45,11 @@
       opacity: 0.92;
     }
   }
+  .loading-pet-search-card {
+    @include mat.elevation(10);
+    border-width: 0 0 3px 0;
+    border-color: transparent;
+  }
   .zipcode-button {
     @include mat.fab-color($theme, $color-variant: tertiary);
   }
@@ -57,5 +62,17 @@
   }
   .pet-finder-link {
     color: mat.get-theme-color($theme, tertiary);
+  }
+  .pet-search-skeleton {
+    animation: skeleton-loading 1s infinite linear alternate;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-color: mat.get-theme-color($theme, surface-container-high);
+    }
+    100% {
+      background-color: mat.get-theme-color($theme, surface-dim);
+    }
   }
 }
