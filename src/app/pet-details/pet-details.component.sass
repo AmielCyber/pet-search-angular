@@ -24,10 +24,15 @@
   justify-self: center
   align-self: flex-end
 
-.pet-image-container
-  @media only screen and (max-width: 600px)
+@media only screen and (max-width: 600px)
+  .pet-image-container
     width: 300px
     height: 300px
+  .pet-container
+    max-width: 95vw
+    align-items: center
+  .pet-attributes-container
+    flex-direction: column
 
 .pet-text-attributes
   text-align: inherit
