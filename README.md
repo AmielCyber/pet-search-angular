@@ -60,6 +60,7 @@ the future.
 ### Required Dependencies
 
 * [Node.js](https://nodejs.org/en)
+* [Angular CLI](https://angular.dev/tools/cli)
 
 
 ### Running the Production Build

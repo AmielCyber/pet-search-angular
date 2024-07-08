@@ -1,5 +1,5 @@
 <ng-container
-  *ngIf="petList">
+  *ngIf="petList ">
   <ol class="pet-list-container">
     <app-pet-search-card
       *ngFor="let pet of petList.pets"
@@ -7,3 +7,11 @@
     />
   </ol>
 </ng-container>
+<ng-container
+  *ngIf="isLoading"
+>
+  <ol class="pet-list-container">
+    <app-pet-search-skeleton-card *ngFor="let _ of this.iterable"/>
+  </ol>
+</ng-container>
+

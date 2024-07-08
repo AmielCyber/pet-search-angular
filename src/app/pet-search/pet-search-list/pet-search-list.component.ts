@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PetList} from "../../core/models/pet-list.model";
 
 @Component({
@@ -7,6 +7,13 @@ import {PetList} from "../../core/models/pet-list.model";
   styleUrl: './pet-search-list.component.sass',
 
 })
-export class PetSearchListComponent {
+export class PetSearchListComponent implements OnInit {
   @Input({required: true}) petList?: PetList;
+  @Input({required: true}) isLoading?: boolean;
+  @Input() pageSize: number = 20;
+  protected iterable: Array<undefined> = [];
+
+  ngOnInit(): void {
+    this.iterable = new Array(this.pageSize);
+  }
 }
