@@ -1,8 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LocationButtonsComponent} from './location-buttons.component';
-import {HttpRequestState} from "../models/http-request-state.model";
-import {Location} from "../models/location.model";
 import {LocationService} from "../services/location.service";
 import {of} from "rxjs";
 import {defaultLocation} from "../data/default-location.data";
