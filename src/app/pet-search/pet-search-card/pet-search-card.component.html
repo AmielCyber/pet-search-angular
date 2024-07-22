@@ -23,11 +23,11 @@
           </ng-template>
         </div>
         <h6 class="mat-headline-5 card-heading">{{ pet.name }}</h6>
-        <div class="card-description mat-body-1">
+        <p class="card-description mat-body-1">
           {{ pet.age }} {{ pet.gender }}
           <br/>
           {{ pet.distance | number: '.1-1' | distanceDescription }}
-        </div>
+        </p>
       </mat-card>
     </a>
   </ng-container>

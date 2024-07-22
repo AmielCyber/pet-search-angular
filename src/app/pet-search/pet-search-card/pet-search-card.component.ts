@@ -12,6 +12,7 @@ import {PetDetailsService} from "../services/pet-details.service";
 export class PetSearchCardComponent implements OnInit {
   @Input({required: true}) pet?: Pet;
   petImageUrl: string | null = null;
+  protected readonly ROUTER_TOKENS = ROUTER_TOKENS;
 
   constructor(private petDetailsService: PetDetailsService) {
   }
@@ -35,6 +36,4 @@ export class PetSearchCardComponent implements OnInit {
     }
     return null;
   }
-
-  protected readonly ROUTER_TOKENS = ROUTER_TOKENS;
 }
