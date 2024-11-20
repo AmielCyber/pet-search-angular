@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PetSearchDisplayComponent } from './pet-search-display.component';
 
+// TODO: Test
 describe('PetSearchDisplayComponent', () => {
   let component: PetSearchDisplayComponent;
   let fixture: ComponentFixture<PetSearchDisplayComponent>;
@@ -11,7 +12,7 @@ describe('PetSearchDisplayComponent', () => {
       declarations: [PetSearchDisplayComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(PetSearchDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
