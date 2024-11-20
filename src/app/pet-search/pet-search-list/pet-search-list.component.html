@@ -1,17 +1,18 @@
-<ng-container
-  *ngIf="petList ">
-  <ol class="pet-list-container" aria-busy="false" aria-live="polite">
-    <app-pet-search-card
-      *ngFor="let pet of petList.pets"
-      [pet]="pet"
-    />
-  </ol>
-</ng-container>
-<ng-container
-  *ngIf="isLoading"
->
-  <ol class="pet-list-container" aria-busy="true" aria-live="polite">
-    <app-pet-search-skeleton-card *ngFor="let _ of this.iterable"/>
-  </ol>
-</ng-container>
-
+<div class="pet-list-container">
+  <ng-container
+    *ngIf="petList ">
+    <ol class="pet-list-sub-container" aria-busy="false" aria-live="polite">
+      <app-pet-search-card
+        *ngFor="let pet of petList.pets"
+        [pet]="pet"
+      />
+    </ol>
+  </ng-container>
+  <ng-container
+    *ngIf="isLoading"
+  >
+    <ol class="pet-list-sub-container" aria-busy="true" aria-live="polite">
+      <app-pet-search-skeleton-card *ngFor="let _ of this.iterable"/>
+    </ol>
+  </ng-container>
+</div>
