@@ -56,7 +56,7 @@ export class PetSearchComponent implements OnInit, OnDestroy {
       .pipe(
         skip(1),
         tap(l =>
-          this.petSearchParamsService.setLocationURLQuery(l.data?.zipcode ?? this.petSearchParams.location)
+          this.petSearchParamsService.setLocationURLQuery(l.data?.zipcode ?? this.petSearchParams.zipcode)
         )
       ).subscribe();
   }

@@ -30,7 +30,7 @@ export class PetSearchParamsService {
   paramsToPetSearchParams(petTypePlural: string, params: Params): PetSearchParams {
     return ({
       type: this.getPetTypeFromPluralPetType(petTypePlural),
-      location: params["location"] ?? this.defaultPetSearchParams.location,
+      zipcode: params["location"] ?? this.defaultPetSearchParams.zipcode,
       page: params["page"] ?? "1",
       distance: params["distance"],
       sort: params["sort"]
@@ -38,7 +38,7 @@ export class PetSearchParamsService {
   }
 
   setLocationURLQuery(zipcode: string): void {
-    this.setQuery({location: zipcode, page: "1"});
+    this.setQuery({zipcode: zipcode, page: "1"});
   }
 
   setPageURLQuery(pageIndex: string): void {

@@ -30,7 +30,7 @@ describe('PetHttpService', () => {
       const expectedUrl = service["petsUrl"];
       const petSearchParams: PetSearchParams = {
         type: "Dog",
-        location: "92101",
+        zipcode: "92101",
         page: null,
         distance: null,
         sort: null,
@@ -45,7 +45,7 @@ describe('PetHttpService', () => {
       const expectedUrl = service["petsUrl"];
       const petSearchParams: PetSearchParams = {
         type: "Dog",
-        location: "92101",
+        zipcode: "92101",
         page: null,
         distance: null,
         sort: null,
@@ -60,7 +60,7 @@ describe('PetHttpService', () => {
       const expectedUrl = service["petsUrl"];
       const petSearchParams: PetSearchParams = {
         type: "Dog",
-        location: "92101",
+        zipcode: "92101",
         page: null,
         distance: null,
         sort: null,
@@ -69,13 +69,13 @@ describe('PetHttpService', () => {
       const regex = new RegExp(expectedUrl, "g");
       const req = httpTestingController.expectOne(req => !!req.url.match(regex));
       req.flush(getExpectedPetListData());
-      expect(req.request.params).toMatch(`location=${petSearchParams.location}`)
+      expect(req.request.params).toMatch(`location=${petSearchParams.zipcode}`)
     })
     it("should call with 'page' parameter", () => {
       const expectedUrl = service["petsUrl"];
       const petSearchParams: PetSearchParams = {
         type: "Dog",
-        location: "92101",
+        zipcode: "92101",
         page: "1",
         distance: null,
         sort: null,
@@ -90,7 +90,7 @@ describe('PetHttpService', () => {
       const expectedUrl = service["petsUrl"];
       const petSearchParams: PetSearchParams = {
         type: "Dog",
-        location: "92101",
+        zipcode: "92101",
         page: null,
         distance: "50",
         sort: null,
@@ -105,7 +105,7 @@ describe('PetHttpService', () => {
       const expectedUrl = service["petsUrl"];
       const petSearchParams: PetSearchParams = {
         type: "Dog",
-        location: "92101",
+        zipcode: "92101",
         page: null,
         distance: null,
         sort: "distance",
@@ -120,7 +120,7 @@ describe('PetHttpService', () => {
       const expectedUrl = service["petsUrl"];
       const petSearchParams: PetSearchParams = {
         type: "Dog",
-        location: "92101",
+        zipcode: "92101",
         page: null,
         distance: null,
         sort: null,
